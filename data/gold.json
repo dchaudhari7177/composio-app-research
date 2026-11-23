@@ -1,0 +1,529 @@
+{
+ "about": "Hand-check sample: 20 apps drawn at random (2 per category, random.Random(2026)). Each was labeled from the live official docs by an independent verifier that never saw the pipeline output, then spot-checked in a browser. Labels follow data/rubric.md.",
+ "apps": [
+  {
+   "id": 2,
+   "name": "HubSpot",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ],
+   "access": "self_serve",
+   "api_type": "rest",
+   "official_mcp": "yes",
+   "verdict": "build_now",
+   "evidence": {
+    "auth": [
+     "https://developers.hubspot.com/docs/api/working-with-oauth",
+     "Any app designed for installation by multiple HubSpot accounts ... must use OAuth."
+    ],
+    "access": [
+     "https://developers.hubspot.com/docs/getting-started/account-types",
+     "Developer test accounts are free HubSpot accounts"
+    ],
+    "official_mcp": [
+     "https://developers.hubspot.com/mcp",
+     "HubSpot offers two distinct MCP (Model Context Protocol) servers"
+    ]
+   },
+   "notes": "api_key = private app access token (legacy private-app creation ends Oct 2026)."
+  },
+  {
+   "id": 6,
+   "name": "Podio",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ],
+   "access": "self_serve",
+   "api_type": "rest",
+   "official_mcp": "no",
+   "verdict": "build_now",
+   "evidence": {
+    "auth": [
+     "https://developers.podio.com/authentication",
+     "The Podio API uses the OAuth2 protocol for authentication."
+    ],
+    "access": [
+     "https://developers.podio.com/api-key",
+     "It's easy to get one or more API keys for accessing your Podio data."
+    ],
+    "official_mcp": [
+     "https://github.com/podio",
+     "no MCP repository in the vendor org"
+    ]
+   },
+   "notes": "api_key = app ID + app token (app-auth grant)."
+  },
+  {
+   "id": 19,
+   "name": "Gorgias",
+   "auth": [
+    "api_key",
+    "basic",
+    "oauth2"
+   ],
+   "access": "self_serve",
+   "api_type": "rest",
+   "official_mcp": "yes",
+   "verdict": "build_now",
+   "evidence": {
+    "auth": [
+     "https://developers.gorgias.com/docs/access-tokens-api-keys",
+     "Since we're using HTTP Basic Authentication, the USERNAME:API_KEY pair has to be a base64 encoded string."
+    ],
+    "access": [
+     "https://developers.gorgias.com/docs/private-vs-public-app",
+     "You don't need to follow any special process to create a private app."
+    ],
+    "official_mcp": [
+     "https://github.com/gorgias/mcp-cookbook",
+     "The Gorgias MCP is a first-party connector"
+    ]
+   },
+   "notes": "Public (multi-tenant) apps need OAuth2 + Developer Portal review."
+  },
+  {
+   "id": 20,
+   "name": "Gladly",
+   "auth": [
+    "basic"
+   ],
+   "access": "partner",
+   "api_type": "rest",
+   "official_mcp": "yes",
+   "verdict": "outreach",
+   "evidence": {
+    "auth": [
+     "https://developer.gladly.com/rest/",
+     "Gladly API uses token-based Basic Authentication."
+    ],
+    "access": [
+     "https://developer.gladly.com/rest/",
+     "First, you'll need to set up an account with the necessary API permissions."
+    ],
+    "official_mcp": [
+     "https://github.com/gladly/claude-plugin",
+     "Gladly needs to have turned on the Gladly MCP for your organization."
+    ]
+   },
+   "notes": "No self-serve signup; the API needs an existing Gladly org (sales-led)."
+  },
+  {
+   "id": 22,
+   "name": "Twilio",
+   "auth": [
+    "basic",
+    "api_key",
+    "other"
+   ],
+   "access": "self_serve",
+   "api_type": "rest",
+   "official_mcp": "yes",
+   "verdict": "build_now",
+   "evidence": {
+    "auth": [
+     "https://www.twilio.com/docs/usage/requests-to-twilio",
+     "use HTTP Basic authentication. Use your API key SID as the username"
+    ],
+    "access": [
+     "https://www.twilio.com/docs/usage/trials",
+     "You can sign up for a Twilio free trial account without a credit card."
+    ],
+    "official_mcp": [
+     "https://www.twilio.com/docs/ai/mcp",
+     "The Twilio Model Context Protocol (MCP) server gives AI coding agents direct, structured access"
+    ]
+   },
+   "notes": "other = JWT access tokens for client SDKs."
+  },
+  {
+   "id": 24,
+   "name": "Lark (Larksuite)",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ],
+   "access": "self_serve",
+   "api_type": "rest",
+   "official_mcp": "yes",
+   "verdict": "build_now",
+   "evidence": {
+    "auth": [
+     "https://github.com/larksuite/lark-openapi-mcp",
+     "Obtain the App ID and App Secret, which will be used for API authentication"
+    ],
+    "access": [
+     "https://github.com/larksuite/lark-openapi-mcp",
+     "Click 'Console' and create a new application"
+    ],
+    "official_mcp": [
+     "https://github.com/larksuite/lark-openapi-mcp",
+     "This is the Feishu/Lark official OpenAPI MCP"
+    ]
+   },
+   "notes": "open.larksuite.com docs are JS-rendered; evidence from the vendor GitHub org."
+  },
+  {
+   "id": 39,
+   "name": "Threads (Meta)",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ],
+   "access": "self_serve",
+   "api_type": "rest",
+   "official_mcp": "yes",
+   "verdict": "build_now",
+   "evidence": {
+    "auth": [
+     "https://developers.facebook.com/docs/threads/get-started",
+     "API authentication is handled by Threads user access tokens that conform to the OAuth 2.0 protocol."
+    ],
+    "access": [
+     "https://developers.facebook.com/docs/threads/get-started",
+     "To access the Threads API, create an app and pick the Threads use case."
+    ],
+    "official_mcp": [
+     "https://developers.facebook.com/docs/threads/llms.txt",
+     "Connect your Threads account to an AI assistant with the Threads MCP server"
+    ]
+   },
+   "notes": "Self-serve for own/tester accounts; App Review before serving the public."
+  },
+  {
+   "id": 40,
+   "name": "SendGrid",
+   "auth": [
+    "api_key"
+   ],
+   "access": "self_serve",
+   "api_type": "rest",
+   "official_mcp": "no",
+   "verdict": "build_now",
+   "evidence": {
+    "auth": [
+     "https://www.twilio.com/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/authentication",
+     "To use an API key, include an Authorization header with the value Bearer"
+    ],
+    "access": [
+     "https://www.twilio.com/en-us/products/email-api/pricing",
+     "Sign up for our free plan (no credit card required)"
+    ],
+    "official_mcp": [
+     "https://github.com/sendgrid",
+     "no MCP repository in the vendor org"
+    ]
+   },
+   "notes": ""
+  },
+  {
+   "id": 47,
+   "name": "Ecwid",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ],
+   "access": "paid_plan",
+   "api_type": "rest",
+   "official_mcp": "no",
+   "verdict": "build_with_gate",
+   "evidence": {
+    "auth": [
+     "https://docs.ecwid.com/ecwid-api-features.md",
+     "oAuth 2.0 tokens (simplified for single-store customizations)"
+    ],
+    "access": [
+     "https://docs.ecwid.com/get-started/set-up-your-dev-environment-in-ecwid.md",
+     "Only stores on paid plans can access API."
+    ],
+    "official_mcp": [
+     "https://github.com/ecwid",
+     "no MCP repository in the vendor org"
+    ]
+   },
+   "notes": "Developers can request a free paid-plan upgrade by email (not self-serve)."
+  },
+  {
+   "id": 49,
+   "name": "Amazon Selling Partner",
+   "auth": [
+    "oauth2"
+   ],
+   "access": "approval",
+   "api_type": "rest",
+   "official_mcp": "yes",
+   "verdict": "build_with_gate",
+   "evidence": {
+    "auth": [
+     "https://github.com/amzn/selling-partner-api-samples",
+     "Standard OAuth 2.0 redirect-based flow for web applications"
+    ],
+    "access": [
+     "https://github.com/amzn/selling-partner-api-samples",
+     "An approved SP-API application"
+    ],
+    "official_mcp": [
+     "https://github.com/amzn/selling-partner-api-samples",
+     "A local MCP server that bundles SP-API developer tools"
+    ]
+   },
+   "notes": "Needs a Seller/Vendor Central developer registration that Amazon approves."
+  },
+  {
+   "id": 58,
+   "name": "Sherlock",
+   "auth": [],
+   "access": "no_api",
+   "api_type": "none",
+   "official_mcp": "no",
+   "verdict": "not_viable",
+   "evidence": {
+    "auth": [
+     "https://github.com/sherlock-project/sherlock",
+     "To search for only one user: sherlock user123"
+    ],
+    "access": [
+     "https://github.com/sherlock-project/sherlock",
+     "pipx install sherlock-project"
+    ],
+    "official_mcp": [
+     "https://github.com/sherlock-project/sherlock",
+     "README lists only CLI usage"
+    ]
+   },
+   "notes": "Local CLI only; wrapping it means hosting it yourself."
+  },
+  {
+   "id": 60,
+   "name": "Clay",
+   "auth": null,
+   "access": "partner",
+   "api_type": null,
+   "official_mcp": "yes",
+   "verdict": "outreach",
+   "evidence": {
+    "access": [
+     "https://www.clay.com/pricing",
+     "Enterprise (custom pricing with annual commitment) ... Clay API access"
+    ],
+    "official_mcp": [
+     "https://www.clay.com/pricing",
+     "Clay MCP for Reps | Search, enrich, and reach out to leads from your AI chat tool | Included"
+    ]
+   },
+   "notes": "Browser-checked. Full Clay API is Enterprise-only (sales-led); free plan gets a capped CLI/API search quota and the MCP. No public API reference, so auth/api_type are not scored."
+  },
+  {
+   "id": 61,
+   "name": "GitHub",
+   "auth": [
+    "api_key",
+    "oauth2",
+    "basic",
+    "other"
+   ],
+   "access": "self_serve",
+   "api_type": "both",
+   "official_mcp": "yes",
+   "verdict": "build_now",
+   "evidence": {
+    "auth": [
+     "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+     "you can create a personal access token"
+    ],
+    "access": [
+     "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+     "If you want to use the GitHub REST API for personal use, you can create a personal access token."
+    ],
+    "official_mcp": [
+     "https://github.com/github/github-mcp-server",
+     "GitHub's official MCP Server"
+    ]
+   },
+   "notes": "GitHub also has a public GraphQL API (docs.github.com/graphql), so api_type=both. other = GitHub App JWT."
+  },
+  {
+   "id": 64,
+   "name": "Cloudflare",
+   "auth": [
+    "api_key"
+   ],
+   "access": "self_serve",
+   "api_type": "both",
+   "official_mcp": "yes",
+   "verdict": "build_now",
+   "evidence": {
+    "auth": [
+     "https://developers.cloudflare.com/fundamentals/api/get-started/",
+     "Create an API token to grant access to the API"
+    ],
+    "access": [
+     "https://developers.cloudflare.com/fundamentals/api/get-started/create-token/",
+     "go to My Profile > API Tokens"
+    ],
+    "official_mcp": [
+     "https://github.com/cloudflare/mcp-server-cloudflare",
+     "the recommended Cloudflare API MCP Server is maintained in cloudflare/mcp"
+    ]
+   },
+   "notes": "GraphQL Analytics API alongside REST."
+  },
+  {
+   "id": 72,
+   "name": "Airtable",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ],
+   "access": "self_serve",
+   "api_type": "rest",
+   "official_mcp": "no",
+   "verdict": "build_now",
+   "evidence": {
+    "auth": [
+     "https://airtable.com/developers/web/api/authentication",
+     "We currently support using personal access tokens and OAuth access tokens"
+    ],
+    "access": [
+     "https://airtable.com/developers/web/guides/personal-access-tokens",
+     "The personal access tokens panel can be accessed at /create/tokens."
+    ],
+    "official_mcp": [
+     "https://airtable.com/developers/web/api/introduction",
+     "no vendor MCP documented"
+    ]
+   },
+   "notes": ""
+  },
+  {
+   "id": 80,
+   "name": "Harvest",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ],
+   "access": "self_serve",
+   "api_type": "rest",
+   "official_mcp": "no",
+   "verdict": "build_now",
+   "evidence": {
+    "auth": [
+     "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/",
+     "Implementing a full OAuth2 Authentication flow"
+    ],
+    "access": [
+     "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/",
+     "creating a Personal Access Token from the Developers section of Harvest ID"
+    ],
+    "official_mcp": [
+     "https://help.getharvest.com/api-v2/",
+     "no vendor MCP documented"
+    ]
+   },
+   "notes": "Free trial account is enough to mint a token."
+  },
+  {
+   "id": 82,
+   "name": "Plaid",
+   "auth": [
+    "api_key"
+   ],
+   "access": "self_serve",
+   "api_type": "rest",
+   "official_mcp": "no",
+   "verdict": "build_now",
+   "evidence": {
+    "auth": [
+     "https://plaid.com/docs/api/",
+     "Almost all Plaid API endpoints require a client_id and secret."
+    ],
+    "access": [
+     "https://plaid.com/docs/api/",
+     "To gain access to the Plaid API, create an account on the Plaid Dashboard."
+    ],
+    "official_mcp": [
+     "https://plaid.com/docs/",
+     "no vendor MCP found in fetched pages"
+    ]
+   },
+   "notes": "Sandbox is self-serve; production access is requested through the Dashboard."
+  },
+  {
+   "id": 85,
+   "name": "iPayX",
+   "auth": [
+    "api_key"
+   ],
+   "access": "paid_plan",
+   "api_type": "rest",
+   "official_mcp": "yes",
+   "verdict": "build_with_gate",
+   "evidence": {
+    "auth": [
+     "https://www.ipayx.ai/docs/api",
+     "Every request requires a Bearer token in the Authorization header."
+    ],
+    "access": [
+     "https://www.ipayx.ai/",
+     "Upgrade to the 100-audit Credit Pack or Unlimited for API access"
+    ],
+    "official_mcp": [
+     "https://www.ipayx.ai/docs/mcp-server",
+     "Connect your AI agent to real-time FX audit verdicts."
+    ]
+   },
+   "notes": "Docs conflict: MCP page mentions a free 10-audits/day key; homepage says upgrade for API access."
+  },
+  {
+   "id": 92,
+   "name": "Otter AI",
+   "auth": [
+    "api_key"
+   ],
+   "access": "partner",
+   "api_type": "rest",
+   "official_mcp": "yes",
+   "verdict": "outreach",
+   "evidence": {
+    "auth": [
+     "https://help.otter.ai/hc/en-us/search?query=API",
+     "curl -X GET \"https://api.otter.ai/v1/workspace\" -H \"Authorization: Bearer YOUR_API_KEY\""
+    ],
+    "access": [
+     "https://help.otter.ai/hc/en-us/search?query=API",
+     "Yes, Otter offers a public API for Enterprise customers. To get started, contact your Otter account manager"
+    ],
+    "official_mcp": [
+     "https://help.otter.ai/hc/en-us/articles/35287607569687-Otter-MCP-Server",
+     "\"otter_meeting_mcp\": { \"url\": \"https://mcp.otter.ai/mcp\" }"
+    ]
+   },
+   "notes": "Browser-checked (help.otter.ai blocks scripted fetches). REST API is Enterprise-only via account manager, but the official MCP is OAuth for any Otter user."
+  },
+  {
+   "id": 98,
+   "name": "Mermaid CLI",
+   "auth": [],
+   "access": "no_api",
+   "api_type": "none",
+   "official_mcp": "no",
+   "verdict": "not_viable",
+   "evidence": {
+    "auth": [
+     "https://github.com/mermaid-js/mermaid-cli",
+     "This is a command-line interface (CLI) for mermaid."
+    ],
+    "access": [
+     "https://github.com/mermaid-js/mermaid-cli",
+     "It takes a mermaid definition file as input and generates an SVG/PNG/PDF file"
+    ],
+    "official_mcp": [
+     "https://github.com/mermaid-js/mermaid-cli",
+     "README shows no MCP server"
+    ]
+   },
+   "notes": "Local CLI / Node import only."
+  }
+ ]
+}
