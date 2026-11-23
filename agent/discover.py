@@ -23,7 +23,7 @@ FIELD_KEYWORDS: dict[str, list[str]] = {
     "official_mcp": ["mcp", "model-context", "ai-agents", "agents", "llm", "ai-tools"],
 }
 
-NOISE = re.compile(r"/(blog|careers|jobs|legal|privacy|terms|press|customers|events|webinars?|community|forum|status|login|signin|signup|changelog/\d)", re.I)
+NOISE = re.compile(r"/(blog|careers|jobs|legal|privacy|terms|press|customers|events|webinars?|community|forum|status|login|signin|signup|changelog|release-notes|releases|news|partners?/(?!api))|invite\.|events\.", re.I)
 
 
 def hint_url(hint: str) -> str:
@@ -82,7 +82,7 @@ async def site_index(f: Fetcher, root: Page) -> list[tuple[str, str]]:
     p = urlparse(base)
     origin = f"{p.scheme}://{p.netloc}"
     links = list(root.links)
-    extra = await asyncio.gather(f.get(origin + "/llms.txt"), f.get(origin + "/sitemap.xml"))
+    extra = await asyncio.gather(f.get(origin + "/llms.txt"), f.get(origin + "/docs/llms.txt"), f.get(origin + "/sitemap.xml"))
     for pg in extra:
         if 200 <= pg.status < 300 and pg.text and "<html" not in pg.text[:200].lower():
             links += pg.links

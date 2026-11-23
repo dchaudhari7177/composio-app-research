@@ -77,7 +77,7 @@ def html_to_page(url: str, status: int, final_url: str, html: str) -> Page:
 
 
 def _plain_to_page(url: str, status: int, final_url: str, body: str) -> Page:
-    links = [(m.group(0), "") for m in re.finditer(r"https?://[^\s)\]>\"']+", body)]
+    links = [(m.group(0), "") for m in re.finditer(r"https?://[^\s)\]<>\"']+", body)]
     # markdown links: [title](url)
     links += [(urljoin(final_url or url, m.group(2)), m.group(1)) for m in re.finditer(r"\[([^\]]{1,120})\]\(([^)\s]+)\)", body)]
     return Page(url=url, status=status, final_url=final_url, text=body[:200_000], links=links)

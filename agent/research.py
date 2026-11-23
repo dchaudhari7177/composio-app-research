@@ -199,7 +199,19 @@ class Researcher:
         r1 = []
         for fld in FIELDS:
             r1 += rank(links, fld, set(read), 2)
-        r1 = list(dict.fromkeys(r1))[:8]
+        if root:
+            o = urlparse(root.final_url or root.url)
+            origin = f"{o.scheme}://{o.netloc}"
+            base = (root.final_url or root.url).rstrip("/")
+            r1 += [origin + p for p in ("/docs/api/authentication", "/docs/authentication", "/authentication",
+                                        "/docs/api/overview", "/docs/getting-started")]
+            if base != origin:
+                more = await self.f.get(base + "/llms.txt")
+                if 200 <= more.status < 300 and "<html" not in more.text[:200].lower():
+                    links += [(u, a) for u, a in more.links if same_site(u, base)]
+                    for fld in FIELDS:
+                        r1 = rank(links, fld, set(read), 2) + r1
+        r1 = [u for u in dict.fromkeys(r1) if u.rstrip("/") not in read][:12]
         for p in await asyncio.gather(*(self.f.get(u) for u in r1)):
             if p.ok:
                 read[(p.final_url or p.url).rstrip("/")] = p
@@ -312,7 +324,18 @@ class Researcher:
 
         def cited(field: str, value: str, cites: list) -> list[Signal]:
             got = [ids[c] for c in cites if isinstance(c, str) and c in ids]
-            return [s for s in got if supports(field, value, s.quote)]
+            ok = [s for s in got if supports(field, value, s.quote)]
+            if ok:
+                return ok
+            # Small models often cite the wrong id. Re-ground: accept the claim only if a
+            # snippet the model was shown states this exact value clearly (strength >= 2).
+            pool = list(ids.values()) + [s for s in signals if s.strength >= 3]
+            alt = [s for s in pool if s.field == field and s.value == value and s.strength >= 2
+                   and supports(field, value, s.quote)]
+            if alt and value:
+                flags.append({"field": field, "kind": "recited", "value": value,
+                              "detail": "LLM cited the wrong snippet; claim re-grounded on a snippet that states it"})
+            return alt[:2]
 
         def best_quotes(field: str, value: str, k: int = 2) -> list[Signal]:
             c = [s for s in signals if s.field == field and s.value == value]

@@ -7,9 +7,11 @@ and the JSON contract are the same.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
+from pathlib import Path
 
 import httpx
 
@@ -42,12 +44,22 @@ class LLM:
         return f"{self.backend}:{self.model}"
 
     def complete_json(self, prompt: str) -> dict:
+        key = hashlib.sha1("\n".join((self.name, RUBRIC, prompt)).encode()).hexdigest()[:24]
+        cache = Path(__file__).resolve().parent.parent / "runs" / "cache" / f"llm-{key}.json"
+        if cache.exists():
+            return json.loads(cache.read_text(encoding="utf-8"))
+        out = self._complete(prompt)
+        if out:
+            cache.write_text(json.dumps(out), encoding="utf-8")
+        return out
+
+    def _complete(self, prompt: str) -> dict:
         self.calls += 1
         if self.backend == "ollama":
             r = httpx.post(
                 f"{self.host}/api/chat",
                 json={"model": self.model, "format": "json", "stream": False,
-                      "options": {"temperature": 0, "num_ctx": 8192},
+                      "options": {"temperature": 0, "num_ctx": 6144},
                       "messages": [{"role": "system", "content": RUBRIC}, {"role": "user", "content": prompt}]},
                 timeout=300,
             )
