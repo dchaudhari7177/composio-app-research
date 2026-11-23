@@ -98,6 +98,10 @@ def main(argv=None):
     pr.add_argument("--model")
     ps = sub.add_parser("score", help="accuracy against data/gold.json")
     ps.add_argument("--results", default=str(RUNS / "results.json"))
+    prv = sub.add_parser("review", help="write the review queue and apply data/review.json")
+    prv.add_argument("--results", default=str(RUNS / "results.json"))
+    pb = sub.add_parser("site", help="build site/index.html from the results")
+    pb.add_argument("--results", default=str(RUNS / "results.json"))
     a = ap.parse_args(argv)
 
     if a.cmd == "run":
@@ -113,6 +117,14 @@ def main(argv=None):
         from .score import score_file
 
         print(json.dumps(score_file(Path(a.results)), indent=1))
+    elif a.cmd == "review":
+        from .review import main as review_main
+
+        review_main(Path(a.results))
+    elif a.cmd == "site":
+        from .site import build
+
+        build(Path(a.results))
 
 
 if __name__ == "__main__":

@@ -427,27 +427,28 @@
    "id": 82,
    "name": "Plaid",
    "auth": [
-    "api_key"
+    "api_key",
+    "oauth2"
    ],
    "access": "self_serve",
    "api_type": "rest",
-   "official_mcp": "no",
+   "official_mcp": "yes",
    "verdict": "build_now",
    "evidence": {
     "auth": [
-     "https://plaid.com/docs/api/",
-     "Almost all Plaid API endpoints require a client_id and secret."
+     "https://plaid.com/docs/api/oauth/",
+     "/oauth/token ... conform to the OAuth 2.0 specification. client_credentials allows exchanging a client id and client secret"
     ],
     "access": [
      "https://plaid.com/docs/api/",
      "To gain access to the Plaid API, create an account on the Plaid Dashboard."
     ],
     "official_mcp": [
-     "https://plaid.com/docs/",
-     "no vendor MCP found in fetched pages"
+     "https://plaid.com/docs/resources/mcp/",
+     "Plaid offers two Model Context Protocol (MCP) servers: The Dashboard MCP server is a remote MCP server hosted by Plaid."
     ]
    },
-   "notes": "Sandbox is self-serve; production access is requested through the Dashboard."
+   "notes": "Sandbox is self-serve; production access is requested through the Dashboard. Gold corrected after the agent surfaced the OAuth and MCP pages (browser-confirmed)."
   },
   {
    "id": 85,
@@ -524,6 +525,30 @@
     ]
    },
    "notes": "Local CLI / Node import only."
+  }
+ ],
+ "corrections": [
+  {
+   "id": 82,
+   "name": "Plaid",
+   "fields": [
+    "auth",
+    "official_mcp"
+   ],
+   "was": {
+    "auth": [
+     "api_key"
+    ],
+    "official_mcp": "no"
+   },
+   "now": {
+    "auth": [
+     "api_key",
+     "oauth2"
+    ],
+    "official_mcp": "yes"
+   },
+   "why": "The independent verifier marked Plaid MCP 'unconfirmed' and missed the OAuth token service. The agent cited plaid.com/docs/resources/mcp and plaid.com/docs/api/oauth; both confirmed by hand in a browser."
   }
  ]
 }
