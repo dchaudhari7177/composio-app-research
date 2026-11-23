@@ -150,7 +150,7 @@ async def github_org_mcp(app: dict) -> list[Signal]:
         owner, name = it["full_name"].lower().split("/", 1)
         if "mcp" in name and owner.replace("-", "") in toks:
             out.append(Signal("official_mcp", "yes", it["html_url"],
-                              f"GitHub repo {it['full_name']} (vendor org): {it.get('description', '')[:160]}", 3))
+                              f"GitHub repo {it['full_name']} (vendor org): {(it.get('description') or '')[:160]}", 3))
     return out[:2]
 
 
@@ -332,9 +332,13 @@ class Researcher:
         # domain, or (for docs hosted by a parent company, e.g. SendGrid on twilio.com) names the app.
         slug = re.sub(r"[^a-z0-9]", "", app["name"].lower().split("(")[0])
 
+        hint_is_github = urlparse(hint_url(app["hint"])).netloc.lower() in ("github.com", "www.github.com")
+
         def mcp_ok(s: Signal) -> bool:
             if s.field != "official_mcp" or "registry.modelcontextprotocol" in s.url:
                 return True
+            if hint_is_github:  # github.com page chrome mentions GitHub's own MCP products
+                return False
             if same_site(s.url, hint_url(app["hint"])):
                 return True
             return bool(root and same_site(s.url, root.final_url or root.url)) and slug in re.sub(r"[^a-z0-9]", "", (s.url + s.quote).lower())
@@ -439,17 +443,29 @@ class Researcher:
         acc = fres.get("access", {})
         llm_acc, acc_cites = acc.get("value"), cited("access", acc.get("value") or "", acc.get("cite") or [])
         a_sig = sig.get("access", {})
-        is_repo = "github.com/" in app["hint"] and "github.io" not in app["hint"]
-        if is_repo and rest < 3 and not auth_final:
+        is_repo = urlparse(hint_url(app["hint"])).netloc.lower() in ("github.com", "www.github.com")
+        # A GitHub repo is a network API only if its README documents endpoints; GitHub's own
+        # page chrome ("REST API", "GraphQL") does not count.
+        repo_endpoints = any(s.field == "api_type" and re.search(r"(GET|POST|PUT|DELETE) /|localhost:\d+", s.quote)
+                             for s in signals)
+        if is_repo and not repo_endpoints:
             access = "no_api"
             evidence["access"] = [s.to_json() for s in best_quotes("access", "no_api")]
         elif llm_acc and acc_cites:
             access = llm_acc
             evidence["access"] = [s.to_json() for s in acc_cites[:2]]
-            gates = [g for g in ("paid_plan", "approval", "partner") if a_sig.get(g, 0) >= 3 and g != access]
-            if access == "self_serve" and gates:
+            gates = [g for g in ("paid_plan", "partner", "approval") if a_sig.get(g, 0) >= 3 and g != access]
+            hard = [g for g in gates if g in ("paid_plan", "partner")]
+            if access == "self_serve" and hard:
+                # An explicit, API-specific restriction ("Only stores on paid plans can access API")
+                # outranks generic sign-up copy. Still flagged so a human confirms it.
+                flags.append({"field": "access", "kind": "conflict", "value": hard[0],
+                              "detail": f"LLM said self_serve; docs explicitly state {hard[0]}, which wins"})
+                access = hard[0]
+                evidence["access"] = [s.to_json() for s in best_quotes("access", access)]
+            elif access == "self_serve" and gates:
                 flags.append({"field": "access", "kind": "conflict", "value": access,
-                              "detail": f"LLM says self_serve but docs also state {', '.join(gates)}", "alt": gates})
+                              "detail": f"LLM says self_serve but docs also mention {', '.join(gates)} (often only for public apps)", "alt": gates})
         else:
             if llm_acc:
                 flags.append({"field": "access", "kind": "ungrounded", "value": llm_acc, "detail": "LLM access claim had no supporting quote"})

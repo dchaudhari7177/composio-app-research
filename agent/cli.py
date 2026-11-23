@@ -59,7 +59,7 @@ async def run(apps: list[dict], out_path: Path, concurrency: int, render: bool, 
         nonlocal done
         async with sem:
             try:
-                rec = await r.run(app)
+                rec = await asyncio.wait_for(r.run(app), timeout=360)
             except Exception as e:  # one broken site must not stop the batch
                 rec = {"id": app["id"], "name": app["name"], "category": app["category"], "hint": app["hint"],
                        "error": f"{type(e).__name__}: {e}"[:300]}
