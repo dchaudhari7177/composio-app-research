@@ -1,0 +1,769 @@
+{
+ "source": "https://docs.composio.dev/toolkits (scraped 2026-11-23, 1,843 toolkits)",
+ "method": "slug match on the app name, with manual calls for ambiguous cases (see note)",
+ "apps": [
+  {
+   "id": 1,
+   "name": "Salesforce",
+   "composio_toolkits": [
+    "salesforce"
+   ],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "name": "HubSpot",
+   "composio_toolkits": [
+    "hubspot"
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "name": "Pipedrive",
+   "composio_toolkits": [
+    "pipedrive"
+   ],
+   "note": ""
+  },
+  {
+   "id": 4,
+   "name": "Attio",
+   "composio_toolkits": [
+    "attio"
+   ],
+   "note": ""
+  },
+  {
+   "id": 5,
+   "name": "Twenty",
+   "composio_toolkits": [
+    "twenty"
+   ],
+   "note": ""
+  },
+  {
+   "id": 6,
+   "name": "Podio",
+   "composio_toolkits": [
+    "podio"
+   ],
+   "note": ""
+  },
+  {
+   "id": 7,
+   "name": "Zoho CRM",
+   "composio_toolkits": [
+    "zoho"
+   ],
+   "note": ""
+  },
+  {
+   "id": 8,
+   "name": "Close",
+   "composio_toolkits": [
+    "close"
+   ],
+   "note": ""
+  },
+  {
+   "id": 9,
+   "name": "Copper",
+   "composio_toolkits": [
+    "copper"
+   ],
+   "note": ""
+  },
+  {
+   "id": 10,
+   "name": "DealCloud",
+   "composio_toolkits": [],
+   "note": ""
+  },
+  {
+   "id": 11,
+   "name": "Zendesk",
+   "composio_toolkits": [
+    "zendesk"
+   ],
+   "note": ""
+  },
+  {
+   "id": 12,
+   "name": "Intercom",
+   "composio_toolkits": [
+    "intercom"
+   ],
+   "note": ""
+  },
+  {
+   "id": 13,
+   "name": "Freshdesk",
+   "composio_toolkits": [
+    "freshdesk"
+   ],
+   "note": ""
+  },
+  {
+   "id": 14,
+   "name": "Front",
+   "composio_toolkits": [
+    "front"
+   ],
+   "note": ""
+  },
+  {
+   "id": 15,
+   "name": "Pylon",
+   "composio_toolkits": [
+    "pylon_mcp"
+   ],
+   "note": ""
+  },
+  {
+   "id": 16,
+   "name": "LiveAgent",
+   "composio_toolkits": [],
+   "note": ""
+  },
+  {
+   "id": 17,
+   "name": "Plain",
+   "composio_toolkits": [
+    "plain"
+   ],
+   "note": ""
+  },
+  {
+   "id": 18,
+   "name": "Help Scout",
+   "composio_toolkits": [
+    "help_scout"
+   ],
+   "note": ""
+  },
+  {
+   "id": 19,
+   "name": "Gorgias",
+   "composio_toolkits": [
+    "gorgias"
+   ],
+   "note": ""
+  },
+  {
+   "id": 20,
+   "name": "Gladly",
+   "composio_toolkits": [],
+   "note": ""
+  },
+  {
+   "id": 21,
+   "name": "Slack",
+   "composio_toolkits": [
+    "slack"
+   ],
+   "note": ""
+  },
+  {
+   "id": 22,
+   "name": "Twilio",
+   "composio_toolkits": [
+    "twilio"
+   ],
+   "note": ""
+  },
+  {
+   "id": 23,
+   "name": "Zoho Cliq",
+   "composio_toolkits": [
+    "zoho_cliq"
+   ],
+   "note": ""
+  },
+  {
+   "id": 24,
+   "name": "Lark (Larksuite)",
+   "composio_toolkits": [
+    "lark"
+   ],
+   "note": ""
+  },
+  {
+   "id": 25,
+   "name": "Pumble",
+   "composio_toolkits": [
+    "pumble"
+   ],
+   "note": ""
+  },
+  {
+   "id": 26,
+   "name": "Discord",
+   "composio_toolkits": [
+    "discord"
+   ],
+   "note": ""
+  },
+  {
+   "id": 27,
+   "name": "Telegram",
+   "composio_toolkits": [
+    "telegram"
+   ],
+   "note": ""
+  },
+  {
+   "id": 28,
+   "name": "WhatsApp Business",
+   "composio_toolkits": [
+    "whatsapp"
+   ],
+   "note": ""
+  },
+  {
+   "id": 29,
+   "name": "Aircall",
+   "composio_toolkits": [
+    "aircall"
+   ],
+   "note": ""
+  },
+  {
+   "id": 30,
+   "name": "Vonage",
+   "composio_toolkits": [],
+   "note": ""
+  },
+  {
+   "id": 31,
+   "name": "Google Ads",
+   "composio_toolkits": [
+    "googleads"
+   ],
+   "note": ""
+  },
+  {
+   "id": 32,
+   "name": "Meta Ads",
+   "composio_toolkits": [
+    "metaads"
+   ],
+   "note": ""
+  },
+  {
+   "id": 33,
+   "name": "LinkedIn Ads",
+   "composio_toolkits": [
+    "linkedin_ads"
+   ],
+   "note": ""
+  },
+  {
+   "id": 34,
+   "name": "GoHighLevel",
+   "composio_toolkits": [
+    "highlevel_agency",
+    "highlevel_location",
+    "highlevel_mcp"
+   ],
+   "note": ""
+  },
+  {
+   "id": 35,
+   "name": "Mailchimp",
+   "composio_toolkits": [
+    "mailchimp"
+   ],
+   "note": ""
+  },
+  {
+   "id": 36,
+   "name": "Klaviyo",
+   "composio_toolkits": [
+    "klaviyo"
+   ],
+   "note": ""
+  },
+  {
+   "id": 37,
+   "name": "systeme.io",
+   "composio_toolkits": [],
+   "note": ""
+  },
+  {
+   "id": 38,
+   "name": "Pinterest",
+   "composio_toolkits": [
+    "pinterest"
+   ],
+   "note": ""
+  },
+  {
+   "id": 39,
+   "name": "Threads (Meta)",
+   "composio_toolkits": [
+    "threads"
+   ],
+   "note": ""
+  },
+  {
+   "id": 40,
+   "name": "SendGrid",
+   "composio_toolkits": [
+    "sendgrid"
+   ],
+   "note": ""
+  },
+  {
+   "id": 41,
+   "name": "Shopify",
+   "composio_toolkits": [
+    "shopify"
+   ],
+   "note": ""
+  },
+  {
+   "id": 42,
+   "name": "WooCommerce",
+   "composio_toolkits": [],
+   "note": ""
+  },
+  {
+   "id": 43,
+   "name": "BigCommerce",
+   "composio_toolkits": [
+    "bigcommerce"
+   ],
+   "note": ""
+  },
+  {
+   "id": 44,
+   "name": "Salesforce Commerce Cloud",
+   "composio_toolkits": [],
+   "note": "only the generic 'salesforce' (CRM) toolkit exists"
+  },
+  {
+   "id": 45,
+   "name": "Magento (Adobe Commerce)",
+   "composio_toolkits": [],
+   "note": ""
+  },
+  {
+   "id": 46,
+   "name": "Squarespace",
+   "composio_toolkits": [],
+   "note": ""
+  },
+  {
+   "id": 47,
+   "name": "Ecwid",
+   "composio_toolkits": [],
+   "note": ""
+  },
+  {
+   "id": 48,
+   "name": "Gumroad",
+   "composio_toolkits": [
+    "gumroad"
+   ],
+   "note": ""
+  },
+  {
+   "id": 49,
+   "name": "Amazon Selling Partner",
+   "composio_toolkits": [],
+   "note": "an 'amazon' toolkit exists but is not documented as SP-API"
+  },
+  {
+   "id": 50,
+   "name": "fanbasis",
+   "composio_toolkits": [],
+   "note": ""
+  },
+  {
+   "id": 51,
+   "name": "DataForSEO",
+   "composio_toolkits": [
+    "dataforseo"
+   ],
+   "note": ""
+  },
+  {
+   "id": 52,
+   "name": "SE Ranking",
+   "composio_toolkits": [],
+   "note": ""
+  },
+  {
+   "id": 53,
+   "name": "Ahrefs",
+   "composio_toolkits": [
+    "ahrefs"
+   ],
+   "note": ""
+  },
+  {
+   "id": 54,
+   "name": "MrScraper",
+   "composio_toolkits": [
+    "mrscraper"
+   ],
+   "note": ""
+  },
+  {
+   "id": 55,
+   "name": "Apify",
+   "composio_toolkits": [
+    "apify"
+   ],
+   "note": ""
+  },
+  {
+   "id": 56,
+   "name": "Firecrawl",
+   "composio_toolkits": [
+    "firecrawl"
+   ],
+   "note": ""
+  },
+  {
+   "id": 57,
+   "name": "Bright Data",
+   "composio_toolkits": [
+    "brightdata"
+   ],
+   "note": ""
+  },
+  {
+   "id": 58,
+   "name": "Sherlock",
+   "composio_toolkits": [],
+   "note": ""
+  },
+  {
+   "id": 59,
+   "name": "Waterfall.io",
+   "composio_toolkits": [],
+   "note": ""
+  },
+  {
+   "id": 60,
+   "name": "Clay",
+   "composio_toolkits": [
+    "clay"
+   ],
+   "note": ""
+  },
+  {
+   "id": 61,
+   "name": "GitHub",
+   "composio_toolkits": [
+    "github"
+   ],
+   "note": ""
+  },
+  {
+   "id": 62,
+   "name": "Vercel",
+   "composio_toolkits": [
+    "vercel"
+   ],
+   "note": ""
+  },
+  {
+   "id": 63,
+   "name": "Netlify",
+   "composio_toolkits": [
+    "netlify_mcp"
+   ],
+   "note": ""
+  },
+  {
+   "id": 64,
+   "name": "Cloudflare",
+   "composio_toolkits": [
+    "cloudflare"
+   ],
+   "note": ""
+  },
+  {
+   "id": 65,
+   "name": "Supabase",
+   "composio_toolkits": [
+    "supabase"
+   ],
+   "note": ""
+  },
+  {
+   "id": 66,
+   "name": "Neo4j",
+   "composio_toolkits": [
+    "neo4j"
+   ],
+   "note": ""
+  },
+  {
+   "id": 67,
+   "name": "Snowflake",
+   "composio_toolkits": [
+    "snowflake"
+   ],
+   "note": ""
+  },
+  {
+   "id": 68,
+   "name": "MongoDB Atlas",
+   "composio_toolkits": [
+    "mongodb"
+   ],
+   "note": ""
+  },
+  {
+   "id": 69,
+   "name": "Datadog",
+   "composio_toolkits": [
+    "datadog"
+   ],
+   "note": ""
+  },
+  {
+   "id": 70,
+   "name": "Sentry",
+   "composio_toolkits": [
+    "sentry"
+   ],
+   "note": ""
+  },
+  {
+   "id": 71,
+   "name": "Notion",
+   "composio_toolkits": [
+    "notion"
+   ],
+   "note": ""
+  },
+  {
+   "id": 72,
+   "name": "Airtable",
+   "composio_toolkits": [
+    "airtable"
+   ],
+   "note": ""
+  },
+  {
+   "id": 73,
+   "name": "Linear",
+   "composio_toolkits": [
+    "linear"
+   ],
+   "note": ""
+  },
+  {
+   "id": 74,
+   "name": "Jira",
+   "composio_toolkits": [
+    "jira"
+   ],
+   "note": ""
+  },
+  {
+   "id": 75,
+   "name": "Asana",
+   "composio_toolkits": [
+    "asana"
+   ],
+   "note": ""
+  },
+  {
+   "id": 76,
+   "name": "Monday.com",
+   "composio_toolkits": [
+    "monday",
+    "monday_mcp"
+   ],
+   "note": ""
+  },
+  {
+   "id": 77,
+   "name": "ClickUp",
+   "composio_toolkits": [
+    "clickup"
+   ],
+   "note": ""
+  },
+  {
+   "id": 78,
+   "name": "Coda",
+   "composio_toolkits": [
+    "coda"
+   ],
+   "note": ""
+  },
+  {
+   "id": 79,
+   "name": "Smartsheet",
+   "composio_toolkits": [
+    "smartsheet"
+   ],
+   "note": ""
+  },
+  {
+   "id": 80,
+   "name": "Harvest",
+   "composio_toolkits": [
+    "harvest"
+   ],
+   "note": ""
+  },
+  {
+   "id": 81,
+   "name": "Stripe",
+   "composio_toolkits": [
+    "stripe"
+   ],
+   "note": ""
+  },
+  {
+   "id": 82,
+   "name": "Plaid",
+   "composio_toolkits": [
+    "plaid"
+   ],
+   "note": ""
+  },
+  {
+   "id": 83,
+   "name": "Binance",
+   "composio_toolkits": [],
+   "note": ""
+  },
+  {
+   "id": 84,
+   "name": "Paygent Connect",
+   "composio_toolkits": [],
+   "note": ""
+  },
+  {
+   "id": 85,
+   "name": "iPayX",
+   "composio_toolkits": [],
+   "note": ""
+  },
+  {
+   "id": 86,
+   "name": "QuickBooks",
+   "composio_toolkits": [
+    "quickbooks"
+   ],
+   "note": ""
+  },
+  {
+   "id": 87,
+   "name": "Xero",
+   "composio_toolkits": [
+    "xero"
+   ],
+   "note": ""
+  },
+  {
+   "id": 88,
+   "name": "Brex",
+   "composio_toolkits": [
+    "brex"
+   ],
+   "note": ""
+  },
+  {
+   "id": 89,
+   "name": "Ramp",
+   "composio_toolkits": [
+    "ramp"
+   ],
+   "note": ""
+  },
+  {
+   "id": 90,
+   "name": "PitchBook",
+   "composio_toolkits": [
+    "pitchbook"
+   ],
+   "note": ""
+  },
+  {
+   "id": 91,
+   "name": "NotebookLM",
+   "composio_toolkits": [
+    "notebook_lm"
+   ],
+   "note": ""
+  },
+  {
+   "id": 92,
+   "name": "Otter AI",
+   "composio_toolkits": [
+    "otter_ai_mcp"
+   ],
+   "note": ""
+  },
+  {
+   "id": 93,
+   "name": "Fathom",
+   "composio_toolkits": [
+    "fathom"
+   ],
+   "note": ""
+  },
+  {
+   "id": 94,
+   "name": "Consensus",
+   "composio_toolkits": [
+    "consensus"
+   ],
+   "note": ""
+  },
+  {
+   "id": 95,
+   "name": "Reducto",
+   "composio_toolkits": [],
+   "note": ""
+  },
+  {
+   "id": 96,
+   "name": "Devin",
+   "composio_toolkits": [
+    "devin_mcp"
+   ],
+   "note": ""
+  },
+  {
+   "id": 97,
+   "name": "higgsfield",
+   "composio_toolkits": [
+    "higgsfield"
+   ],
+   "note": ""
+  },
+  {
+   "id": 98,
+   "name": "Mermaid CLI",
+   "composio_toolkits": [],
+   "note": "'mermaid_chart_mcp' is Mermaid Chart (a different hosted product), not the CLI"
+  },
+  {
+   "id": 99,
+   "name": "YouTube Transcript",
+   "composio_toolkits": [
+    "youtube_transcript"
+   ],
+   "note": ""
+  },
+  {
+   "id": 100,
+   "name": "Grain",
+   "composio_toolkits": [
+    "grain"
+   ],
+   "note": ""
+  }
+ ]
+}

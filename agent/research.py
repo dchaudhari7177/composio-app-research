@@ -90,11 +90,13 @@ async def mcp_registry(f: Fetcher, app: dict, docs_url: str) -> tuple[list[Signa
         repo = ((srv.get("repository") or {}).get("url") or "").lower()
         remotes = [r.get("url", "").lower() for r in (srv.get("remotes") or [])]
         ns = sname.split("/")[0]  # reverse-DNS namespace, e.g. com.stripe or io.github.stripe
-        ns_parts = set(ns.split("."))
         owner = repo.split("github.com/")[1].split("/")[0] if "github.com/" in repo else ""
-        remote_hosts = {urlparse(r).netloc for r in remotes}
-        vendor_owned = bool(ns_parts & toks and not ns.startswith("io.github.")) or (owner and owner in toks) or \
-            any(any(t in h.split(".") for t in toks) for h in remote_hosts)
+        ns_domain = ".".join(reversed(ns.split(".")))  # com.stripe -> stripe.com
+        home = hint_url(app["hint"])
+        # Vendor-owned only on an exact match: the namespace IS the vendor's domain, the GitHub
+        # repo owner IS the vendor slug (io.github.<vendor>/...), or a remote is served from the
+        # vendor's own domain. A third party's "pipedrive.usefulapi.io" does not count.
+        vendor_owned = (not ns.startswith("io.github.") and "." in ns and same_site("https://" + ns_domain, home)) or             (bool(owner) and owner.replace("-", "") in toks) or             (ns.startswith("io.github.") and ns.split(".", 2)[-1].replace("-", "") in toks) or             any(same_site(r, home) for r in remotes if r.startswith("http"))
         if vendor_owned:
             official.append(Signal("official_mcp", "yes", f"https://registry.modelcontextprotocol.io/v0/servers?search={quote_plus(name)}",
                                    f"MCP registry entry {srv.get('name')} ({repo or ', '.join(remotes)}): {(srv.get('description') or '')[:160]}", 3))
