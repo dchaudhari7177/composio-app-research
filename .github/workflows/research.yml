@@ -1,0 +1,49 @@
+name: Research an app
+
+# One-click trigger: Actions tab -> "Research an app" -> Run workflow.
+# Runs the same agent on a free local model inside the runner and writes the
+# evidenced record to the job summary (and as a JSON artifact).
+on:
+  workflow_dispatch:
+    inputs:
+      app:
+        description: "App name (e.g. Calendly)"
+        required: true
+      hint:
+        description: "Docs URL or domain (e.g. developer.calendly.com)"
+        required: true
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Start a local LLM (Ollama, qwen2.5:3b)
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          (ollama serve > /tmp/ollama.log 2>&1 &)
+          sleep 5
+          ollama pull qwen2.5:3b
+      - name: Install
+        run: uv sync
+      - name: Run the agent
+        env:
+          OLLAMA_HOST_URL: http://127.0.0.1:11434
+          APP: ${{ inputs.app }}
+          HINT: ${{ inputs.hint }}
+        run: uv run python -m agent run --app "$APP" --hint "$HINT" --no-render --out runs/adhoc.json
+      - name: Job summary
+        run: uv run python scripts/summary.py runs/adhoc.json >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: research-result
+          path: runs/adhoc.json
+
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --extra dev && uv run pytest -q
