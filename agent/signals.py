@@ -81,7 +81,7 @@ def extract(page: Page, max_per_rule: int = 3) -> list[Signal]:
         n = 0
         for m in pat.finditer(page.text):
             q = window(page.text, m.start(), m.end())
-            st = 1 if (field in ("auth", "access") and NEGATION.search(window(page.text, m.start(), m.end(), 80))) else strength
+            st = 1 if (field in ("auth", "access") and NEGATION.search(window(page.text, m.start(), m.end(), 140))) else strength
             out.append(Signal(field, value, url, q, st))
             n += 1
             if n >= max_per_rule:

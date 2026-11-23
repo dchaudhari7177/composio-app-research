@@ -20,6 +20,8 @@ from __future__ import annotations
 import asyncio
 import re
 import threading
+
+import httpx
 from urllib.parse import quote_plus, urlparse
 
 from .discover import FIELD_KEYWORDS, candidate_roots, hint_url, looks_like_docs, rank, site_index
@@ -103,6 +105,53 @@ async def mcp_registry(f: Fetcher, app: dict, docs_url: str) -> tuple[list[Signa
         else:
             community.add(sname)
     return official[:2], len(community)
+
+
+_gh_lock = asyncio.Semaphore(2)
+
+
+async def github_org_mcp(app: dict) -> list[Signal]:
+    """L4b: an MCP server repo published under the vendor's own GitHub org.
+
+    Many vendors ship their MCP server on GitHub before (or instead of) their docs site
+    mentioning it. One search per app; a hit counts only when the repo owner is the vendor
+    (owner login matches the vendor's domain label or name) and the repo name contains 'mcp'.
+    """
+    import hashlib
+    import json
+    import os
+
+    from .fetch import CACHE
+
+    toks = vendor_tokens(app, "")
+    slug = re.sub(r"[^a-z0-9]", "", app["name"].lower().split("(")[0])
+    q = f"{slug} mcp"
+    path = CACHE / f"gh-{hashlib.sha1(q.encode()).hexdigest()[:16]}.json"
+    if path.exists():
+        data = json.loads(path.read_text(encoding="utf-8"))
+    else:
+        headers = {"Accept": "application/vnd.github+json"}
+        if os.environ.get("GITHUB_TOKEN"):
+            headers["Authorization"] = f"Bearer {os.environ['GITHUB_TOKEN']}"
+        async with _gh_lock:
+            try:
+                async with httpx.AsyncClient(timeout=20) as c:
+                    r = await c.get("https://api.github.com/search/repositories", params={"q": q, "per_page": 30}, headers=headers)
+                data = r.json() if r.status_code == 200 else {"items": [], "status": r.status_code}
+            except Exception as e:
+                data = {"items": [], "error": str(e)[:100]}
+            await asyncio.sleep(2.1)  # stay under the search API rate limit
+        if "status" not in data and "error" not in data:
+            path.write_text(json.dumps({"items": [{"full_name": i["full_name"], "html_url": i["html_url"],
+                                                   "description": i.get("description") or ""} for i in data.get("items", [])]}),
+                            encoding="utf-8")
+    out = []
+    for it in data.get("items", []):
+        owner, name = it["full_name"].lower().split("/", 1)
+        if "mcp" in name and owner.replace("-", "") in toks:
+            out.append(Signal("official_mcp", "yes", it["html_url"],
+                              f"GitHub repo {it['full_name']} (vendor org): {it.get('description', '')[:160]}", 3))
+    return out[:2]
 
 
 def snippet_block(signals: list[Signal], root: Page | None, cap: int = 30) -> tuple[str, dict[str, Signal]]:
@@ -297,6 +346,10 @@ class Researcher:
         f_prompt = f"App: {app['name']} (category: {app['category']}; hint: {app['hint']} {app['hint_note']})\nEvidence snippets:\n{block}"
         f_raw = await asyncio.to_thread(call_llm, self.llm, f_prompt)
         fres = read_llm(f_raw)
+
+        gh = await github_org_mcp(app)
+        signals += gh
+        trace.append(f"L4b GitHub org check: {len(gh)} vendor MCP repo(s)")
 
         final, evidence, flags = self.reconcile(app, fres, ids, signals, root)
         trace.append(f"L5/L6 grounding + reconciliation: {len(flags)} flags")
