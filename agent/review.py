@@ -15,7 +15,7 @@ from .research import verdict_for
 
 ROOT = Path(__file__).resolve().parent.parent
 
-NEEDS_HUMAN = {"conflict", "rule_only", "missing"}
+NEEDS_HUMAN = {"conflict", "rule_only", "missing", "unverified"}
 
 
 def queue(results: dict) -> list[dict]:

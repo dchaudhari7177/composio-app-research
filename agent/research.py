@@ -326,7 +326,7 @@ class Researcher:
 
         def cited(field: str, value: str, cites: list) -> list[Signal]:
             got = [ids[c] for c in cites if isinstance(c, str) and c in ids]
-            ok = [s for s in got if supports(field, value, s.quote)]
+            ok = [s for s in got if s.field == field and s.value == value and supports(field, value, s.quote)]
             if ok:
                 return ok
             # Small models often cite the wrong id. Re-ground: accept the claim only if a
@@ -346,12 +346,21 @@ class Researcher:
 
         # ---- auth: grounded LLM values + explicit rule hits on auth pages
         auth_final: dict[str, list[Signal]] = {}
+        auth_evidence = sum(1 for s in signals if s.field == "auth" and s.strength >= 3)
+        unverified: list[str] = []
         for a in fres.get("auth", []):
             g = cited("auth", a["value"], a["cite"])
             if g:
                 auth_final[a["value"]] = g
+            elif auth_evidence >= 3:
+                # The pages do talk about auth and none of them says this: drop the claim.
+                flags.append({"field": "auth", "kind": "ungrounded", "value": a["value"], "detail": "LLM claim contradicted by silence of well-covered auth docs; dropped"})
             else:
-                flags.append({"field": "auth", "kind": "ungrounded", "value": a["value"], "detail": "LLM claim had no supporting quote; dropped"})
+                # Thin evidence: keep the model's answer but never trust it silently.
+                unverified.append(a["value"])
+        for v in unverified:
+            auth_final.setdefault(v, [])
+            flags.append({"field": "auth", "kind": "unverified", "value": v, "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look"})
         authish = re.compile(r"auth|oauth|token|key|credential|getting-started|quickstart|security", re.I)
         for v in ("oauth2", "api_key", "basic"):
             if v not in auth_final:
@@ -393,6 +402,8 @@ class Researcher:
                 flags.append({"field": "access", "kind": "ungrounded", "value": llm_acc, "detail": "LLM access claim had no supporting quote"})
             order = [("paid_plan", 3), ("approval", 3), ("partner", 3), ("self_serve", 3), ("self_serve", 2)]
             access = next((v for v, st in order if a_sig.get(v, 0) >= st), None)
+            if llm_acc and (access is None or (access == "self_serve" and llm_acc != "self_serve" and a_sig.get("self_serve", 0) < 3)):
+                access = llm_acc
             if access:
                 evidence["access"] = [s.to_json() for s in best_quotes("access", access)]
                 flags.append({"field": "access", "kind": "rule_only", "value": access, "detail": "decided by rules alone; needs a human look"})
