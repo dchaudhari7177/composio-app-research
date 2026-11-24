@@ -82,6 +82,11 @@ table{border-collapse:collapse;width:100%}
 .v-build_with_gate{background:var(--gate-bg);color:var(--gate);border-color:transparent}
 .v-outreach{background:var(--out-bg);color:var(--out);border-color:transparent}
 .v-not_viable{background:var(--nv-bg);color:var(--nv);border-color:transparent}
+.v-unverified{background:transparent;color:var(--ink3);border-style:dashed}
+.blk{font-size:12px;color:var(--ink3);margin-top:3px;max-width:220px;line-height:1.35}
+.ed{color:var(--ink3);font-size:11px;margin-left:4px;cursor:help}
+.stages{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.stages .arr{color:var(--ink3);font-size:18px}
 .mcp-yes{background:var(--accent-soft);color:var(--accent);border-color:transparent}
 .filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 12px}
 .filters input,.filters select{font:inherit;font-size:14px;padding:8px 11px;border-radius:9px;border:1px solid var(--line2);background:var(--panel);color:var(--ink)}
@@ -234,7 +239,7 @@ footer{padding:48px 0 64px;color:var(--ink3);font-size:13px}
     </div>
   </div>
   <div class="card" style="margin-top:16px">
-    <h3>What still goes wrong (honest misses)</h3>
+    <h3>Still wrong after review (honest misses) <span class="note" id="missNote"></span></h3>
     <div id="misses"></div>
   </div>
 </section>
@@ -267,7 +272,7 @@ uv run python -m agent site</pre>
       <h3>Links</h3>
       <p style="margin:0 0 8px">Source, commit history and run artifacts: <a id="repoLink" href="https://github.com/dchaudhari7177/composio-app-research">github.com/dchaudhari7177/composio-app-research</a></p>
       <p style="margin:0 0 8px">One-click trigger: the repo's <strong>Research an app</strong> GitHub Action takes an app name and hint and returns the evidenced record as a job summary.</p>
-      <p style="margin:0">For agents: <a href="apps.json">apps.json</a> (all 100 records with evidence) and <a href="llms.txt">llms.txt</a>.</p>
+      <p style="margin:0">For agents and spreadsheets: <a href="apps.json">apps.json</a> (all 100 records with evidence), <a href="apps.csv">apps.csv</a> and <a href="llms.txt">llms.txt</a>.</p>
     </div>
   </div>
 </section>
@@ -281,7 +286,7 @@ const D = JSON.parse(document.getElementById('data').textContent);
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const pct = x => x == null ? '–' : Math.round(x*100) + '%';
-const VL = {build_now:'build now', build_with_gate:'with gate', outreach:'outreach', not_viable:'not viable'};
+const VL = {build_now:'build now', build_with_gate:'with gate', outreach:'outreach', not_viable:'not viable', unverified:'unresolved'};
 const AL = {self_serve:'self-serve', paid_plan:'paid plan', approval:'approval', partner:'sales / partner', no_api:'no API'};
 const P = D.patterns, T = D.totals, A = D.accuracy;
 
@@ -304,14 +309,14 @@ $('#kpis').innerHTML = [
   ['out', v.outreach, 'need sales or a partnership first'],
   ['nv', v.not_viable, 'no network API to wrap'],
 ].map(([c,x,l]) => `<div class="kpi ${c}"><div class="n">${x}</div><div class="l">${l}</div></div>`).join('') +
-  `<div class="kpi acc"><div class="n">${pct(fin)} <small>from ${pct(p1)}</small></div><div class="l">field accuracy on a 20-app hand-check, before vs after the verification loops</div></div>`;
-$('#kpiNote').textContent = `${T.pages_read.toLocaleString()} docs pages read · ${T.pages_rendered} re-read in a headless browser · ${T.review_queue} fields sent to human review, ${T.reviewed} resolved by hand with a cited URL.`;
+  `<div class="kpi acc"><div class="n stages"><small>${pct(p1)}</small><span class="arr">→</span><small>${pct(fin)}</small><span class="arr">→</span>${pct(rv)}</div><div class="l">field accuracy on a 20-app hand-check: naive pass → after the verification loops → after human review</div></div>`;
+$('#kpiNote').textContent = `${T.pages_read.toLocaleString()} docs pages read · ${T.pages_rendered} re-read in a headless browser · ${T.review_queue} items in the review queue · ${T.reviewed} fields corrected or confirmed with a cited URL and quote` + (v.unverified ? ` · ${v.unverified} apps left unresolved rather than guessed` : '') + '.';
 
 // matrix
-const VK = ['build_now','build_with_gate','outreach','not_viable'];
+const VK = ['build_now','build_with_gate','outreach','not_viable'].concat(v.unverified ? ['unverified'] : []);
 const cats = Object.keys(P.by_category);
 const maxc = Math.max(...cats.flatMap(c => VK.map(k => P.by_category[c][k])));
-const bg = {build_now:'--now', build_with_gate:'--gate', outreach:'--out', not_viable:'--nv'};
+const bg = {build_now:'--now', build_with_gate:'--gate', outreach:'--out', not_viable:'--nv', unverified:'--ink3'};
 $('#matrixT').innerHTML = `<thead><tr><th style="text-align:left">Category</th>${VK.map(k=>`<th>${VL[k]}</th>`).join('')}</tr></thead><tbody>` +
   cats.map(c => `<tr><td class="cat">${esc(c)}</td>${VK.map(k => { const x = P.by_category[c][k]; const a = x ? 0.12 + 0.6*(x/maxc) : 0;
     return `<td><span class="cell" style="background:color-mix(in srgb,var(${bg[k]}) ${Math.round(a*100)}%,transparent);color:${x? (a>0.45?'var(--panel)':'var(--ink)') :'var(--ink3)'}">${x||'·'}</span></td>`; }).join('')}</tr>`).join('') + '</tbody>';
@@ -352,11 +357,11 @@ function render(){
   $('#count').textContent = `${rows.length} of ${apps.length}`;
   $('#appsT tbody').innerHTML = rows.map(a => `<tr class="r" data-id="${a.id}" aria-expanded="${open.has(a.id)}">
     <td class="num">${a.id}</td>
-    <td><div class="nm">${esc(a.name)}${a.reviewed_fields.length?'<span class="flag-dot" title="resolved in review"></span>':''}</div><div class="ol">${esc(a.one_liner)}</div></td>
+    <td><div class="nm">${esc(a.name)}${a.reviewed_fields.length?'<span class="flag-dot" title="fields corrected or confirmed in review: ' + esc(a.reviewed_fields.join(', ')) + '"></span>':''}</div><div class="ol">${esc(a.one_liner)}${a.one_liner_edited?'<span class="ed" title="one-liner rewritten by the reviewer (the 3B model gave a page title)">✎</span>':''}</div></td>
     <td class="cat hide-s">${esc(a.category)}</td><td>${authPills(a)}</td>
     <td>${esc(AL[a.access] || '–')}</td><td class="hide-s">${esc(a.api_type || '–')}</td>
     <td>${a.official_mcp==='yes'?'<span class="pill mcp-yes">yes</span>':'<span class="na">no</span>'}</td>
-    <td><span class="pill v-${a.verdict}">${esc(VL[a.verdict]||'–')}</span></td>
+    <td><span class="pill v-${a.verdict}">${esc(VL[a.verdict]||'–')}</span>${a.blocker && a.blocker !== 'none' ? `<div class="blk">${esc(a.blocker)}</div>` : ''}</td>
     <td class="hide-s">${a.composio.length ? `<span class="pill" title="${esc(a.composio.join(', '))}">${esc(a.composio[0])}</span>` : '<span class="pill v-outreach" title="' + esc(a.composio_note || 'no toolkit found') + '">gap</span>'}</td></tr>` +
     (open.has(a.id) ? `<tr class="detail"><td colspan="9">${evHtml(a)}</td></tr>` : '')).join('');
 }
@@ -369,7 +374,7 @@ render();
 
 // agent flow
 const fk = T.flag_kinds;
-$('#agentSub').innerHTML = `A Python agent (about 900 lines) with a local LLM (<code>${esc(T.llm)}</code>) for reading and deterministic rules for checking. Pass 1 is the naive agent. Loops L1 to L6 are the verification that lifted accuracy. The purple box is the only place a person stepped in.`;
+$('#agentSub').innerHTML = `A Python agent (about 1,300 lines) with a small local LLM (<code>${esc(T.llm)}</code>) for reading and deterministic rules for checking. Pass 1 is the naive agent. Loops L1 to L6 are the verification that lifted accuracy. The purple box is where a human was needed: the agent never guesses on a conflict, it queues it.`;
 const steps = [
   ['discover','Find the docs','From the brief\'s hint, probe developers./docs./api. hosts, then rank pages per question from on-page links, /llms.txt and sitemap.xml.', `${T.pages_read.toLocaleString()} pages read`],
   ['pass 1','Naive LLM answer','Read the top of a few pages and fill the schema. Kept on record as the baseline.', `accuracy ${pct(p1)}`],
@@ -378,7 +383,7 @@ const steps = [
   ['L4','MCP registry','Query the official MCP registry and keep only vendor-owned servers (namespace, repo owner or remote host match the vendor).', 'community servers counted apart'],
   ['L5','Grounding check','Every LLM claim must cite a snippet that actually says it. Uncited or unsupported claims are dropped.', `${fk.ungrounded||0} claims dropped`],
   ['L6','Rule reconciliation','LLM vs rules: explicit statements on auth pages are added; conflicts on the access gate are not guessed.', `${(fk.rule_added||0)} added · ${(fk.conflict||0)} conflicts`],
-  ['human','Review queue','Conflicts, rule-only and missing fields go to a queue. I resolved them by reading the cited docs; each decision stores its URL and quote.', `${T.review_queue} queued · ${T.reviewed} resolved`],
+  ['human','Review queue','Conflicts, uncited claims and apps with no readable docs go to a queue. A reviewer (Claude reading the cited pages, opening the browser when scripts were blocked) proposed each decision with its URL and quote; I signed off. Decisions live in data/review.json.', `${T.review_queue} queued · ${T.queue_resolved} resolved · ${T.reviewed_sweep} sweep fixes`],
 ];
 $('#flow').innerHTML = steps.map(([t,h,p,s],i) => `<div class="step ${t==='human'?'human':(t.startsWith('L')?'loop':'')}"><div class="t">${esc(t)}</div><h3>${esc(h)}</h3><p>${esc(p)}</p><div class="stat">${esc(s)}</div></div>`).join('');
 
@@ -389,12 +394,13 @@ $('#accBars').innerHTML = stagesL.map(([k,l,c]) => `<div class="row"><span>${l}<
 const FL = {auth:'auth', access:'access', api_type:'API', official_mcp:'MCP', verdict:'verdict'};
 $('#fieldAcc').innerHTML = `<thead><tr><th style="text-align:left">Field</th>${stagesL.map(s=>`<th>${s[1].split(' (')[0]}</th>`).join('')}</tr></thead><tbody>` +
   Object.keys(FL).map(f => `<tr><td class="n">${FL[f]}</td>${stagesL.map(([k]) => { const x = A[k].per_field[f]; return `<td>${x.correct}/${x.of}</td>`; }).join('')}</tr>`).join('') + '</tbody>';
-$('#accNote').innerHTML = `${A.final.scored_fields} scored fields. A field the public docs cannot settle (e.g. Clay's API auth) is left unscored instead of guessed. Human review touched ${T.reviewed} fields across all 100 apps; the review-stage number is reported separately because the reviewer had seen the gold labels.`;
+$('#accNote').innerHTML = `${A.final.scored_fields} scored fields. A field the public docs cannot settle (e.g. Clay's API auth) is left unscored instead of guessed. The review-stage number counts only decisions the <em>queue</em> asked for (${T.reviewed_queue}). A second sweep then fixed ${T.reviewed_sweep} more fields on the 80 apps <em>outside</em> the sample (the script refuses to touch sample apps), so it cleaned the table without moving this number. Treat ${pct(fin)} as what the agent does alone and ${pct(rv)} as agent + human.`;
 const r1 = Object.fromEntries(A.pass1.rows.map(r => [r.id, r])), r2 = Object.fromEntries(A.final.rows.map(r => [r.id, r]));
 const mark = x => x === undefined ? '<span class="na">·</span>' : x ? '<span class="ok">✓</span>' : '<span class="bad">✗</span>';
 $('#goldT').innerHTML = `<thead><tr><th style="text-align:left">App</th>${Object.values(FL).map(f=>`<th>${f}</th>`).join('')}<th class="sep" colspan="5">after loops</th></tr></thead><tbody>` +
   A.final.rows.map(r => `<tr><td class="n">${esc(r.name)}</td>${Object.keys(FL).map(f => `<td>${mark(r1[r.id].ok[f])}</td>`).join('')}${Object.keys(FL).map((f,i) => `<td class="${i?'':'sep'}">${mark(r.ok[f])}</td>`).join('')}</tr>`).join('') + '</tbody>';
-const misses = A.final.rows.flatMap(r => Object.entries(r.ok).filter(([f,ok]) => !ok && f !== 'verdict').map(([f]) => `<p class="miss"><strong>${esc(r.name)}</strong> · ${FL[f]}: agent said <code>${esc(JSON.stringify(r.pred[f]))}</code>, docs say <code>${esc(JSON.stringify(r.gold[f]))}</code></p>`));
+$('#missNote').textContent = `(the agent alone missed ${A.final.scored_fields - A.final.correct} of ${A.final.scored_fields} fields; review fixed ${A.reviewed.correct - A.final.correct}; these remain)`;
+const misses = A.reviewed.rows.flatMap(r => Object.entries(r.ok).filter(([f,ok]) => !ok && f !== 'verdict').map(([f]) => `<p class="miss"><strong>${esc(r.name)}</strong> · ${FL[f]}: agent said <code>${esc(JSON.stringify(r.pred[f]))}</code>, docs say <code>${esc(JSON.stringify(r.gold[f]))}</code></p>`));
 const corr = D.gold.corrections.map(c => `<p class="miss"><strong>Gold corrected, ${esc(c.name)}:</strong> ${esc(c.why)}</p>`).join('');
 $('#misses').innerHTML = (misses.join('') || '<p class="miss">No misses left on the sample.</p>') + corr;
 

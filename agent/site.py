@@ -19,9 +19,18 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 
 
+def _one_liners() -> dict:
+    p = ROOT / "data" / "one_liners.json"
+    return {int(k): v for k, v in json.loads(p.read_text(encoding="utf-8"))["edits"].items()} if p.exists() else {}
+
+
+ONE_LINERS = _one_liners()
+
+
 def slim(rec: dict) -> dict:
     """The per-app record the page and apps.json expose."""
     fin = rec.get("reviewed") or rec.get("final") or {}
+    docs = rec.get("docs_url") or next((d["url"] for d in rec.get("review", []) if d.get("url")), None)
     ev = {}
     for k, lst in (rec.get("evidence") or {}).items():
         ev[k] = [{"url": e["url"], "quote": e["quote"][:280], "value": e["value"]} for e in lst[:2]]
@@ -30,14 +39,17 @@ def slim(rec: dict) -> dict:
         ev[d["field"]] = [{"url": d["url"], "quote": d["quote"][:280], "value": d["value"], "human": True}] + ev[d["field"]][:1]
     return {
         "id": rec["id"], "name": rec["name"], "category": rec["category"], "hint": rec["hint"],
-        "docs_url": rec.get("docs_url"), "one_liner": (rec.get("one_liner") or "").strip(),
-        "blocker": rec.get("blocker") or "",
+        "docs_url": docs,
+        "one_liner": ONE_LINERS.get(rec["id"]) or (rec.get("one_liner") or "").strip(),
+        "one_liner_edited": rec["id"] in ONE_LINERS,
+        "blocker": rec.get("blocker_final") or "",
         "auth": fin.get("auth") or [], "access": fin.get("access"), "api_type": fin.get("api_type"),
         "official_mcp": fin.get("official_mcp"), "verdict": fin.get("verdict"),
         "agent": rec.get("final"), "pass1": rec.get("pass1"),
         "evidence": ev,
         "flags": [{"field": f["field"], "kind": f["kind"], "detail": f["detail"]} for f in rec.get("flags", [])],
         "reviewed_fields": [d["field"] for d in rec.get("review", [])],
+        "review_pass": sorted({d.get("pass", "queue") for d in rec.get("review", [])}),
         "community_mcp_servers": rec.get("community_mcp_servers", 0),
         "pages_read": rec.get("pages_read", 0), "pages_rendered": rec.get("pages_rendered", 0),
         "trace": rec.get("trace", []),
@@ -89,6 +101,9 @@ def build(results_path: Path):
         "flags": sum(len(a["flags"]) for a in apps),
         "review_queue": len(q),
         "reviewed": sum(len(a["reviewed_fields"]) for a in apps),
+        "reviewed_queue": sum(1 for r in results["apps"] for d in r.get("review", []) if d.get("pass", "queue") == "queue"),
+        "reviewed_sweep": sum(1 for r in results["apps"] for d in r.get("review", []) if d.get("pass") == "sweep"),
+        "queue_resolved": len({(i["id"], i["field"]) for i in q} & {(r["id"], d["field"]) for r in results["apps"] for d in r.get("review", [])}),
         "llm": results.get("llm"), "generated": results.get("generated"), "fetch": results.get("fetch_stats"),
         "flag_kinds": {},
     }
@@ -108,22 +123,39 @@ def build(results_path: Path):
     (SITE / "index.html").write_text(page, encoding="utf-8")
     (SITE / "apps.json").write_text(json.dumps({"schema": "see /llms.txt", "apps": apps}, indent=1, ensure_ascii=False), encoding="utf-8")
     (SITE / "llms.txt").write_text(llms_txt(apps, pat, acc), encoding="utf-8")
+    write_csv(apps)
     print(f"site built: {len(apps)} apps, page {len(page) // 1024} KB")
+
+
+def write_csv(apps: list[dict]):
+    import csv
+    cols = ["id", "name", "category", "one_liner", "auth", "access", "api_type", "official_mcp", "verdict", "blocker",
+            "composio_toolkit", "docs_url", "auth_evidence_url", "access_evidence_url"]
+    with (SITE / "apps.csv").open("w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh)
+        w.writerow(cols)
+        for a in apps:
+            ev = lambda k: (a["evidence"].get(k) or [{}])[0].get("url", "")
+            w.writerow([a["id"], a["name"], a["category"], a["one_liner"], "+".join(a["auth"]), a["access"], a["api_type"],
+                        a["official_mcp"], a["verdict"], a["blocker"], ",".join(a["composio"]), a["docs_url"] or "",
+                        ev("auth"), ev("access")])
 
 
 def llms_txt(apps: list[dict], pat: dict, acc: dict) -> str:
     fa = acc["stages"]["final"]["accuracy"]
+    ra = acc["stages"]["reviewed"]["accuracy"]
     lines = [
         "# App toolkit readiness: 100 SaaS apps",
         "",
         "> Agent-researched auth, access gate, API surface and official MCP status for 100 apps, with evidence URLs.",
-        f"> Field accuracy on a 20-app hand-checked sample: {fa:.0%} (agent, before human review).",
+        f"> Field accuracy on a 20-app hand-checked sample: {fa:.0%} for the agent alone, {ra:.0%} after human review.",
         "",
         "## Data",
-        "- [apps.json](/apps.json): one record per app. Fields: auth (oauth2|api_key|basic|other), access (self_serve|paid_plan|approval|partner|no_api), api_type (rest|graphql|both|none), official_mcp (yes|no), verdict (build_now|build_with_gate|outreach|not_viable), evidence {field: [{url, quote}]}.",
+        "- [apps.json](/apps.json): one record per app. Fields: auth (oauth2|api_key|basic|other), access (self_serve|paid_plan|approval|partner|no_api), api_type (rest|graphql|both|none), official_mcp (yes|no), verdict (build_now|build_with_gate|outreach|not_viable|unverified), blocker, evidence {field: [{url, quote}]}.",
         "",
         "## Verdict per app",
     ]
     for a in apps:
-        lines.append(f"- {a['name']} ({a['category']}): {a['verdict']}; auth={'+'.join(a['auth']) or 'n/a'}; access={a['access']}; mcp={a['official_mcp']}")
+        lines.append(f"- {a['name']} ({a['category']}): {a['verdict']}; auth={'+'.join(a['auth']) or 'n/a'}; access={a['access']}; "
+                     f"mcp={a['official_mcp']}; blocker={a['blocker']}; docs={a['docs_url'] or 'n/a'}")
     return "\n".join(lines) + "\n"

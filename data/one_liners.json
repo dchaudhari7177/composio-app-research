@@ -1,0 +1,31 @@
+{
+ "about": "Reviewer rewrites of one-liners the local 3B model got wrong or left as page titles. Every other one-liner on the page is the agent's own. Shown with an 'edited' marker.",
+ "edits": {
+  "1": "Enterprise CRM for sales, service and marketing data",
+  "2": "CRM, marketing automation and sales platform for SMBs",
+  "3": "Pipeline-focused sales CRM for small teams",
+  "4": "Data-driven CRM built on flexible objects and lists",
+  "5": "Open-source CRM you can self-host or use in the cloud",
+  "6": "Low-code workspace for building custom work apps (Citrix/Progress)",
+  "9": "CRM built into Google Workspace",
+  "10": "Relationship and deal management CRM for capital markets firms",
+  "11": "Customer service ticketing and help center platform",
+  "21": "Team messaging and workflow platform",
+  "25": "Slack-style team chat with a free unlimited tier",
+  "29": "Cloud phone system for sales and support teams",
+  "33": "LinkedIn's advertising platform (campaigns, audiences, reporting)",
+  "37": "All-in-one funnel, email marketing and course builder",
+  "41": "Hosted ecommerce platform for online stores",
+  "49": "Amazon's API for sellers: orders, listings, inventory, reports",
+  "61": "Code hosting, pull requests, issues and CI",
+  "64": "CDN, DNS, security and edge compute platform",
+  "66": "Graph database (Aura is the managed cloud service)",
+  "76": "Work management platform for boards, projects and CRM",
+  "79": "Spreadsheet-style project and work management",
+  "83": "Cryptocurrency exchange with spot, futures and wallet APIs",
+  "84": "Payments platform for marketplaces (name shared by two unrelated companies)",
+  "89": "Corporate cards, spend management and accounts payable",
+  "91": "Google's AI research notebook over your own sources (API only in the Enterprise edition)",
+  "96": "Autonomous AI software engineer from Cognition"
+ }
+}
