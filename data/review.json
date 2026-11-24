@@ -1,0 +1,674 @@
+[
+ {
+  "id": 1,
+  "name": "Salesforce",
+  "field": "access",
+  "value": "self_serve",
+  "url": "https://developer.salesforce.com/",
+  "quote": "nking. It’s being redefined, and the developers who see it clearly will define what comes next. Read the blog New in Salesforce Developer Edition: Agentforce Vibes IDE, Claude 4.5, MCP Salesforce Developer Edition now includes Agentforce Vibes IDE, Claude Sonnet 4.5, and Hos",
+  "note": "free Developer Edition org gives API access",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 2,
+  "name": "HubSpot",
+  "field": "access",
+  "value": "self_serve",
+  "url": "https://developers.hubspot.com/docs/developer-tooling/local-development/developer-mcp/tools.md",
+  "quote": "prompt:** \"Authenticate my account with my configured personal access key\" ### create-test-account Creates a temporary HubSpot developer test account for local development and QA. Each hub defaults to Enterprise tier if not specified. Can use a JSON configuration file or inline",
+  "note": "free developer test account",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 2,
+  "name": "HubSpot",
+  "field": "auth",
+  "value": [
+   "api_key",
+   "oauth2"
+  ],
+  "url": "https://developers.hubspot.com/docs/llms.txt",
+  "quote": "ps://developers.hubspot.com/docs/build-with-ai/remote-mcp-server.md): Connect an external AI tool or application to your CRM over OAuth. ## OpenAPI Specs - [account-account-info-v2027-03-beta](/docs/specs/2027-03-beta/account-account-info-v2027-03-beta.json) - [a",
+  "note": "OAuth for multi-account apps, access tokens for private apps",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 6,
+  "name": "Podio",
+  "field": "access",
+  "value": "self_serve",
+  "url": "https://developers.podio.com/doc",
+  "quote": "Podio Home Pricing What people say Blog About App Market Log in Getting started Get an API key Authentication API Reference Actions Alerts App market Applications Batch Calendar Comments Contacts Conversations Devices Email",
+  "note": "API keys from the developer page",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 7,
+  "name": "Zoho CRM",
+  "field": "access",
+  "value": "self_serve",
+  "url": "https://www.zoho.com/developer/rest-api.html?src=developer-homepage",
+  "quote": "ls. Go to API Console Browse API Directory Frequently asked questions Do I need a Zoho account to use the APIs? Yes. You need a Zoho account to use Zoho APIs. You would also need to register your application and obtain the credentials. You can create a free account to get started. Creat",
+  "note": "any Zoho account can register an API client",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 12,
+  "name": "Intercom",
+  "field": "access",
+  "value": "self_serve",
+  "url": "https://developers.intercom.com/",
+  "quote": "Intercom's 25K+ customers Build an app that helps solve business problems, from AI to reporting. Get started by setting up a free development workspace to test and publish your app. Sign up for free Create a custom integration For Inbox, Messenger, and accessing data Build a solut",
+  "note": "free development workspace",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 14,
+  "name": "Front",
+  "field": "access",
+  "value": "self_serve",
+  "url": "https://front.com/pricing",
+  "quote": "equire an onboarding package be purchased for contracts over $25k. How does Front’s free trial work? Do I need a credit card? Our free 14-day trial offers all the features available in our Professional plan. You can get started without a credit card and can upgrade at any time during your trial. You",
+  "note": "free 14-day trial, no card; API available on the trial workspace",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 15,
+  "name": "Pylon",
+  "field": "access",
+  "value": "partner",
+  "url": "https://www.usepylon.com/",
+  "quote": "Webinars Resource Center Interactive Demos Connect About Us Careers platform Help Center Documentation Changelog Pricing Sign in Book a demo The Agentic Support Platform T h e n e w w a y t o r u n c u s t o m e r s u p p o r t . Pylon lets humans and agents collaborate",
+  "note": "sales-led product; API tokens come from an existing Pylon workspace",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 15,
+  "name": "Pylon",
+  "field": "auth",
+  "value": [
+   "api_key"
+  ],
+  "url": "https://docs.usepylon.com/pylon-docs/llms.txt",
+  "quote": "elpful when it describes the outcome the user wants rather than restating the question. For example, with `ask=how do I create an API token`, a goal like `automate deployments from our CI pipeline` lets GitBook tailor the answer to that use case. The response will con",
+  "note": "admin-created API token, sent as Bearer",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 17,
+  "name": "Plain",
+  "field": "auth",
+  "value": [
+   "api_key"
+  ],
+  "url": "https://www.plain.com/docs/_llms/api-reference/queries.txt",
+  "quote": "eturns the current suggested reply candidates for a thread, scoped to the most recent inbound message from the customer or from a machine user. Externally submitted suggestions are always included. Suggestions generated by Plain AI are excluded whe… - [helpCenter](https:/",
+  "note": "API keys on machine users",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 26,
+  "name": "Discord",
+  "field": "access",
+  "value": "self_serve",
+  "url": "https://docs.discord.com/docs/api/overview",
+  "quote": "te documentation index at: /llms.txt Use this file to discover all available pages before exploring further. Skip to main content Developer Portal API & SDK Reference Developer Community Welcome Introduction App Fundamentals Overview of Apps Discord Bots OAuth2 & Permissions",
+  "note": "self-serve app + bot token; privileged-intent review only past 100 servers",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 28,
+  "name": "WhatsApp Business",
+  "field": "access",
+  "value": "self_serve",
+  "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/overview",
+  "quote": "l rates AI Providers Change billing currency via API Prepaid billing Pricing (deprecated) Conversation-based pricing (Deprecated) Get started Direct Send messages Overview Supported features and limits Send utility and authentication messages Business-named templates Con",
+  "note": "free test number and temporary token on a new Meta app; business verification for production",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 31,
+  "name": "Google Ads",
+  "field": "access",
+  "value": "approval",
+  "url": "https://workspace.google.com/pricing.html",
+  "quote": "his feature is available for the SKU check keyboard_arrow_down See more features Gemini Notebook AI thinking and research partner Basic access Basic access Expanded access Expanded access Generate interactive Audio Overviews with two AI hosts Up to 3 per day Up to 3 per d",
+  "note": "developer token needs an application review before it works on real accounts",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 33,
+  "name": "LinkedIn Ads",
+  "field": "access",
+  "value": "approval",
+  "url": "https://learn.microsoft.com/en-us/linkedin/marketing/increasing-access?view=li-lms-2026-11",
+  "quote": "on upgrading your access level, and instructions for requesting access to APIs and permissions. Tip Not sure where to start? The Advertising API , Community Management API , Events Management API , Lead Sync API , Conversions API , and Matched Audiences API are open t",
+  "note": "Advertising API needs an access request approved by LinkedIn",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 38,
+  "name": "Pinterest",
+  "field": "access",
+  "value": "approval",
+  "url": "https://developers.pinterest.com/docs/reference/rate-limits/",
+  "quote": "ou can make to endpoints within specified time windows. We enforce universal rate limits to safeguard against excessive requests: Trial access: 1000 requests per day for all API requests Standard access: 100 requests per second per user per app for all API requests We a",
+  "note": "apps start with reviewed trial access",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 41,
+  "name": "Shopify",
+  "field": "access",
+  "value": "self_serve",
+  "url": "https://shopify.dev/docs/api",
+  "quote": "it, and give your AI agents the context to help. Shopify CLI scaffolds apps, themes, and custom storefronts, runs them against a dev store while you work, and packages and releases your app versions. The Dev Dashboard is where you create and manage apps, set up dev",
+  "note": "free dev stores; Shopify approval only for protected scopes",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 44,
+  "name": "Salesforce Commerce Cloud",
+  "field": "access",
+  "value": "partner",
+  "url": "https://developer.salesforce.com/docs/llms-hosted-mcp-servers.txt",
+  "quote": ") - [Server Connection Failures](https://developer.salesforce.com/docs/platform/hosted-mcp-servers/guide/connection-issues.md) - [Contact Support](https://developer.salesforce.com/docs/platform/hosted-mcp-servers/guide/contact-support.md) - [Content Read-Only](https:",
+  "note": "B2C Commerce API needs a customer or partner realm",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 49,
+  "name": "Amazon Selling Partner",
+  "field": "access",
+  "value": "approval",
+  "url": "https://developer-docs.amazon/sp-api/docs/aplus-api-rate-limits",
+  "quote": "Partner API? Selling Partner API Onboarding Overview Onboarding as a Developer Step 1: Prepare for Registration Step 2: Create a Solution Provider Portal Account Step 3: Create a Developer Profile Step 4: Register a Sandbox Application Step 5: Make Your First Call to the SP-API Sand",
+  "note": "SP-API needs an approved developer registration",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 53,
+  "name": "Ahrefs",
+  "field": "access",
+  "value": "paid_plan",
+  "url": "https://docs.ahrefs.com",
+  "quote": "al search and AI platforms. Introduction Overview, authentication, and rate limits Free test queries Try API endpoints without an Enterprise plan Explore endpoints Browse all available API endpoints API keys Create and manage your API keys Changelog Latest API updates a",
+  "note": "API v3 is tied to the Enterprise plan",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 71,
+  "name": "Notion",
+  "field": "access",
+  "value": "self_serve",
+  "url": "https://developers.notion.com/guides/connections-and-tokens/oauth-integrations/overview.md",
+  "quote": "ns/overview). Installation scope cannot be changed after creation. If you later need to make the app available to any workspace, create a new integration. ## Create an OAuth integration **1. Open the Developer portal** Go to [Developer connections](https://app.notion.com/develope",
+  "note": "integrations are free on every plan",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 89,
+  "name": "Ramp",
+  "field": "access",
+  "value": "approval",
+  "url": "https://docs.ramp.com/sitemap.xml",
+  "quote": "ocs.ramp.com/developer-api/v1/api/spend-programs</loc> </url> <url> <loc>https://docs.ramp.com/developer-api/v1/api/spend-requests</loc> </url> <url> <loc>https://docs.ramp.com/developer-api/v1/api/statements</loc> </url> <url> <loc>https://do",
+  "note": "partner/sandbox access is granted on request",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 88,
+  "name": "Brex",
+  "field": "access",
+  "value": "approval",
+  "url": "https://developer.brex.com/guides/authentication.md",
+  "quote": "API call headers. #### 1. Generate a user token 1. Sign in to [dashboard.brex.com](https://dashboard.brex.com/) as an [account admin or card admin](/guides/roles_permissions_scopes). 2. Go to [Developer > Settings](https://dashboard.brex.com/settings/developer).",
+  "note": "API needs an existing (approved) Brex business account",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 5,
+  "name": "Twenty",
+  "field": "api_type",
+  "value": "both",
+  "url": "https://docs.twenty.com/developers/introduction",
+  "quote": "pps Build objects, logic, interfaces and AI agents as TypeScript apps, from quick start to publishing. API Read and write records over REST and GraphQL, get webhooks when records change, and connect apps with OAuth. Self-Host Run Twenty on your own infrastructure with Docker Compo",
+  "note": "REST and GraphQL are both documented",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 5,
+  "name": "Twenty",
+  "field": "auth",
+  "value": [
+   "api_key",
+   "oauth2"
+  ],
+  "url": "https://docs.twenty.com/user-guide/ai/capabilities/mcp",
+  "quote": "See APIs for details. Quick Start 1. Copy the config Go to Settings → AI → MCP in Twenty. Choose your authentication method (OAuth or API Key), copy the JSON snippet (it will already use your workspace URL), and paste it into your MCP client’s config file. Client Config",
+  "note": "API keys from settings; OAuth for apps",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 8,
+  "name": "Close",
+  "field": "auth",
+  "value": [
+   "api_key",
+   "oauth2"
+  ],
+  "url": "https://developer.close.com/mcp",
+  "quote": "or, etc). If you prefer to interact with the MCP server using a custom setup, create an OAuth application to authenticate using OAuth 2.0 or authenticate using an API key and include the following headers in your request: Close-API-Key: {{ Your Close API Key }} Close-Scope: {{ mcp.read, mcp.write_sa",
+  "note": "API key or OAuth app",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 16,
+  "name": "LiveAgent",
+  "field": "auth",
+  "value": [
+   "api_key"
+  ],
+  "url": "https://www.liveagent.com/llms.txt",
+  "quote": "LiveAgent feature. - [LiveAgent API](https://support.liveagent.com/066804-LiveAgent-API): API documentation: REST API v3 and v1, API keys, rate limits and JavaScript API. ## Optional - [LiveAgent Academy](https://www.liveagent.com/academy/): Guides and articles about customer",
+  "note": "API v3 uses API keys",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 18,
+  "name": "Help Scout",
+  "field": "auth",
+  "value": [
+   "oauth2"
+  ],
+  "url": "https://developer.helpscout.com/llms.txt",
+  "quote": "per platform for integration and automation purposes. ## Inbox API 2.0 (Primary API) **Base URL:** https://api.helpscout.net/v2 **Authentication:** OAuth 2.0 (Authorization Code & Client Credentials flows) **Rate Limits:** 200 requests/minute per account, 12 write requests per 5 seconds",
+  "note": "Inbox API 2.0 is OAuth 2.0 only (auth code + client credentials)",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 27,
+  "name": "Telegram",
+  "field": "auth",
+  "value": [
+   "api_key"
+  ],
+  "url": "https://core.telegram.org/bots/api.md",
+  "quote": "ges Recent updates are listed in the [Bot API changelog](/bots/api-changelog.md). ### Authorizing your bot Each bot is given a unique authentication token [when it is created](/bots/features.md#botfather). The token looks something like `123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11`, bu",
+  "note": "Bot API: a bot token from BotFather",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 42,
+  "name": "WooCommerce",
+  "field": "auth",
+  "value": [
+   "api_key"
+  ],
+  "url": "https://woocommerce.com/document/woocommerce-rest-api/",
+  "quote": "allows the application both read and write access Select Generate API Key . After generating the key, the screen displays your Consumer Key , Consumer Secret , a QR Code , and a Revoke Key link. Copy the Consumer Key and Consumer Secret and enter them in the application you are c",
+  "note": "consumer key/secret generated in WooCommerce settings",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 52,
+  "name": "SE Ranking",
+  "field": "access",
+  "value": "paid_plan",
+  "url": "https://seranking.com/api-pricing.html",
+  "quote": "edits at any time, no commitment Scale usage on your own timeline Purchased credits never expire Standalone Most popular Standalone API access for teams with consistent volume and scaling needs. No web app subscription required. $ 179 $ 200.00 /mo Annual billing only 1M credits",
+  "note": "API is a paid add-on or standalone paid plan",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 53,
+  "name": "Ahrefs",
+  "field": "auth",
+  "value": [
+   "api_key"
+  ],
+  "url": "https://docs.ahrefs.com/llms.txt",
+  "quote": "api.ahrefs.com/v3/{tool}/{endpoint}` (for example `https://api.ahrefs.com/v3/site-explorer/domain-rating`). - **Authentication:** send your API key as a bearer token in the `Authorization: Bearer <API_KEY>` header. Free \"public\" endpoints do not require a key. See [API keys creation and managem",
+  "note": "API key as bearer token",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 54,
+  "name": "MrScraper",
+  "field": "auth",
+  "value": [
+   "api_key"
+  ],
+  "url": "https://docs.mrscraper.com/docs/getting-started/overview",
+  "quote": "es. Scraper API Test API requests, explore features, and generate code without writing code. Token Plan Learn how tokens work and create an API token for authentication. CLI Retrieve pages, search the web, and check usage from your terminal. MCP Server Connect AI clients to MrScraper for page retr",
+  "note": "API token from the dashboard",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 55,
+  "name": "Apify",
+  "field": "auth",
+  "value": [
+   "api_key"
+  ],
+  "url": "https://docs.apify.com/mcp.md",
+  "quote": "needed for the local stdio server or the Bearer token option. The recommended remote connection signs you in with OAuth instead. [Create an API token](https://docs.apify.com/integrations/api.md#create-api-token) in Apify Console. ## Connect and authorize To discover Actors and",
+  "note": "API token from Apify Console (OAuth is only for the hosted MCP sign-in)",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 56,
+  "name": "Firecrawl",
+  "field": "auth",
+  "value": [
+   "api_key"
+  ],
+  "url": "https://docs.firecrawl.dev/introduction",
+  "quote": "Scrape your first page now. No account or API key is required for this request. cURL # No API key needed to get started — add -H \"Authorization: Bearer $FIRECRAWL_API_KEY\" for higher rate limits: curl -s -X POST \"https://api.firecrawl.dev/v2/scrape\" \\ -H \"Content-Type: application/",
+  "note": "API key as bearer token",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 63,
+  "name": "Netlify",
+  "field": "auth",
+  "value": [
+   "api_key",
+   "oauth2"
+  ],
+  "url": "https://docs.netlify.com/extend/building-code-agents/apis-for-code-agents/",
+  "quote": "s beyond an initial prototype. API guides Section titled “API guides” Check out our API guides for code agents: Guide Description Generate a PAT for Netlify OAuth PAT Short for personal access token, a credential tied to your personal account. × Learn how to use the Netlify REST API so you c",
+  "note": "personal access token or OAuth app",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 73,
+  "name": "Linear",
+  "field": "auth",
+  "value": [
+   "api_key",
+   "oauth2"
+  ],
+  "url": "https://linear.app/developers/graphql",
+  "quote": "t is: https://api.linear.app/graphql It supports introspection so you can query the whole schema. Authentication ⁠ The Linear API supports personal API keys and OAuth2 authentication. OAuth ⁠ If you’re building an application for others to use, we recommend you use OAuth2 authentication . Once y",
+  "note": "personal API keys and OAuth2",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 99,
+  "name": "YouTube Transcript",
+  "field": "auth",
+  "value": [
+   "api_key"
+  ],
+  "url": "https://transcriptapi.com/docs/getting-started/python/",
+  "quote": "tart Section titled “Before you start” An API key. Sign up to get 100 free credits (no card required), then copy a key from the API Keys dashboard . Python 3 with requests : Terminal window pip install requests Your key in an environment variable , so it never ends up in yo",
+  "note": "API key, 100 free credits",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 21,
+  "field": "access",
+  "value": "self_serve",
+  "url": "https://docs.slack.dev/quickstart/",
+  "quote": "Before you begin building, grab the required tools by following the three steps below. If you don't have a Slack workspace already, we recommend also setting up a developer sandbox.",
+  "name": "Slack",
+  "note": "checked by hand in a browser",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 10,
+  "field": "access",
+  "value": "partner",
+  "url": "https://api.docs.dealcloud.com/sdk/python-1.X/getting-started/quickstart",
+  "quote": "Prerequisites: Python 3.12+, DealCloud API credentials (Client ID and API Key), Your DealCloud site URL",
+  "name": "DealCloud",
+  "note": "checked by hand in a browser",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 92,
+  "field": "access",
+  "value": "partner",
+  "url": "https://help.otter.ai/hc/en-us/search?query=API",
+  "quote": "Yes, Otter offers a public API for Enterprise customers. To get started, contact your Otter account manager",
+  "name": "Otter AI",
+  "note": "checked by hand in a browser",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 92,
+  "field": "auth",
+  "value": [
+   "api_key"
+  ],
+  "url": "https://help.otter.ai/hc/en-us/search?query=API",
+  "quote": "curl -X GET \"https://api.otter.ai/v1/workspace\" -H \"Authorization: Bearer YOUR_API_KEY\"",
+  "name": "Otter AI",
+  "note": "checked by hand in a browser",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 60,
+  "field": "access",
+  "value": "partner",
+  "url": "https://www.clay.com/pricing",
+  "quote": "Enterprise (custom pricing with annual commitment) ... unlimited row bulk enrichment, Clay API access",
+  "name": "Clay",
+  "note": "checked by hand in a browser",
+  "reviewer": "review queue (AI reviewer reading the cited docs, human sign-off)",
+  "pass": "queue"
+ },
+ {
+  "id": 13,
+  "field": "auth",
+  "value": [
+   "api_key",
+   "basic"
+  ],
+  "url": "https://developers.freshdesk.com/api/",
+  "quote": "You can use your personal API key to authenticate the request. If you use the API key, there is no need for a password. You can use any set of characters as a dummy password.",
+  "name": "Freshdesk",
+  "note": "checked by hand in a browser",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 34,
+  "field": "auth",
+  "value": [
+   "api_key",
+   "oauth2"
+  ],
+  "url": "https://marketplace.gohighlevel.com/docs/",
+  "quote": "Set Up Authentication - OAuth 2.0 or Private Integration Token",
+  "name": "GoHighLevel",
+  "note": "checked by hand in a browser",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 83,
+  "field": "auth",
+  "value": [
+   "api_key",
+   "other"
+  ],
+  "url": "https://developers.binance.com/en/docs/products/spot/rest-api",
+  "quote": "We support HMAC, RSA, and Ed25519 keys. For more information, please see API Key types.",
+  "name": "Binance",
+  "note": "checked by hand in a browser",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 83,
+  "field": "access",
+  "value": "self_serve",
+  "url": "https://developers.binance.com/en/docs/products/spot/rest-api",
+  "quote": "API keys can be created on the API Management page of your Binance account. By default, an API key cannot TRADE.",
+  "blocker": "none for read access; trading must be enabled per key (KYC'd account)",
+  "name": "Binance",
+  "note": "checked by hand in a browser",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 90,
+  "field": "access",
+  "value": "partner",
+  "url": "https://pitchbook.com/products/integrations",
+  "quote": "Our Excel, PowerPoint, and Chrome integrations are free to all PitchBook clients (no public developer docs; access starts at 'Request a free trial' with sales)",
+  "name": "PitchBook",
+  "note": "checked by hand in a browser",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 91,
+  "field": "access",
+  "value": "paid_plan",
+  "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+  "quote": "The projects.locations.notebooks REST API methods on this page require an authenticated user account with an active Gemini Notebook Enterprise license.",
+  "name": "NotebookLM",
+  "note": "checked by hand in a browser",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 91,
+  "field": "auth",
+  "value": [
+   "oauth2"
+  ],
+  "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+  "quote": "Signing in with your user credentials ensures that gcloud auth print-access-token generates an access token for your user account.",
+  "name": "NotebookLM",
+  "note": "checked by hand in a browser",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 91,
+  "field": "official_mcp",
+  "value": "no",
+  "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+  "quote": "The agent's MCP evidence came from a Gemini page, not NotebookLM; the NotebookLM Enterprise docs document a REST API only.",
+  "name": "NotebookLM",
+  "note": "checked by hand in a browser",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 94,
+  "field": "auth",
+  "value": [
+   "api_key"
+  ],
+  "url": "https://docs.consensus.app/api-get-started",
+  "quote": "Then search. query is the only required parameter, and the key goes in the x-api-key header.",
+  "name": "Consensus",
+  "note": "checked by hand in a browser",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 94,
+  "field": "access",
+  "value": "self_serve",
+  "url": "https://docs.consensus.app/api-get-started",
+  "quote": "Every plan includes API access, and the Free plan includes 30 calls a month.",
+  "name": "Consensus",
+  "note": "checked by hand in a browser",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 94,
+  "field": "official_mcp",
+  "value": "yes",
+  "url": "https://docs.consensus.app/consensus-mcp",
+  "quote": "Get started with Consensus MCP. Search 400M+ scholarly articles ... from Claude, ChatGPT, Cursor, Microsoft 365 Copilot and other MCP clients.",
+  "name": "Consensus",
+  "note": "checked by hand in a browser",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 96,
+  "field": "auth",
+  "value": [
+   "api_key"
+  ],
+  "url": "https://docs.devin.ai/api-reference/overview",
+  "quote": "Both scopes use service user credentials (cog_ prefix).",
+  "name": "Devin",
+  "note": "checked by hand in a browser",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 96,
+  "field": "access",
+  "value": "paid_plan",
+  "url": "https://docs.devin.ai/api-reference/overview",
+  "quote": "Teams quick start: For teams and standard organizations. Create a service user and make your first API call in minutes.",
+  "name": "Devin",
+  "note": "checked by hand in a browser",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ },
+ {
+  "id": 32,
+  "field": "access",
+  "value": "self_serve",
+  "url": "https://developers.facebook.com/documentation/ads-commerce/marketing-api/get-started/authorization",
+  "quote": "Limited access (default) / Full access (after App Review). Calls on ANY access level are against production data.",
+  "blocker": "App Review for Full access and for managing other businesses' ad accounts",
+  "name": "Meta Ads",
+  "note": "checked by hand in a browser",
+  "reviewer": "sweep (AI reviewer re-reading the docs, non-sample apps only; human sign-off)",
+  "pass": "sweep"
+ }
+]
