@@ -1,0 +1,2484 @@
+{
+ "n_apps": 20,
+ "stages": {
+  "pass1": {
+   "accuracy": 0.645,
+   "correct": 100,
+   "scored_fields": 155,
+   "per_field": {
+    "auth": {
+     "correct": 53,
+     "of": 76,
+     "accuracy": 0.697
+    },
+    "access": {
+     "correct": 12,
+     "of": 20,
+     "accuracy": 0.6
+    },
+    "api_type": {
+     "correct": 15,
+     "of": 19,
+     "accuracy": 0.789
+    },
+    "official_mcp": {
+     "correct": 8,
+     "of": 20,
+     "accuracy": 0.4
+    },
+    "verdict": {
+     "correct": 12,
+     "of": 20,
+     "accuracy": 0.6
+    },
+    "auth_exact": {
+     "correct": 2,
+     "of": 19,
+     "accuracy": 0.105
+    }
+   },
+   "rows": [
+    {
+     "id": 2,
+     "name": "HubSpot",
+     "pred": {
+      "auth": [
+       "api_key",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": true
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 6,
+     "name": "Podio",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 19,
+     "name": "Gorgias",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key",
+       "basic",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": false,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true
+     }
+    },
+    {
+     "id": 20,
+     "name": "Gladly",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "basic"
+      ],
+      "access": "partner",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "outreach"
+     },
+     "ok": {
+      "access": false,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": false,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": false,
+      "auth:api_key": true,
+      "auth:basic": false,
+      "auth:other": true,
+      "access": false,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": false
+     }
+    },
+    {
+     "id": 22,
+     "name": "Twilio",
+     "pred": {
+      "auth": [
+       "api_key",
+       "basic",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "basic",
+       "api_key",
+       "other"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": false,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": false,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 24,
+     "name": "Lark (Larksuite)",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true
+     }
+    },
+    {
+     "id": 39,
+     "name": "Threads (Meta)",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true
+     }
+    },
+    {
+     "id": 40,
+     "name": "SendGrid",
+     "pred": {
+      "auth": [
+       "api_key",
+       "basic"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": false,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 47,
+     "name": "Ecwid",
+     "pred": {
+      "auth": [
+       "api_key",
+       "basic",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "paid_plan",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_with_gate"
+     },
+     "ok": {
+      "access": false,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": false,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": false,
+      "auth:other": true,
+      "access": false,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": false
+     }
+    },
+    {
+     "id": 49,
+     "name": "Amazon Selling Partner",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "approval",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_with_gate"
+     },
+     "ok": {
+      "access": false,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": false,
+      "auth": true
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": false,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": false
+     }
+    },
+    {
+     "id": 58,
+     "name": "Sherlock",
+     "pred": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [],
+      "access": "no_api",
+      "api_type": "none",
+      "official_mcp": "no",
+      "verdict": "not_viable"
+     },
+     "ok": {
+      "access": false,
+      "api_type": false,
+      "official_mcp": true,
+      "verdict": false,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": false,
+      "api_type": false,
+      "official_mcp": true,
+      "verdict": false
+     }
+    },
+    {
+     "id": 60,
+     "name": "Clay",
+     "pred": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": null,
+      "access": "partner",
+      "api_type": null,
+      "official_mcp": "yes",
+      "verdict": "outreach"
+     },
+     "ok": {
+      "access": false,
+      "official_mcp": false,
+      "verdict": false
+     },
+     "ok_methods": {
+      "access": false,
+      "official_mcp": false,
+      "verdict": false
+     }
+    },
+    {
+     "id": 61,
+     "name": "GitHub",
+     "pred": {
+      "auth": [
+       "api_key",
+       "basic",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key",
+       "oauth2",
+       "basic",
+       "other"
+      ],
+      "access": "self_serve",
+      "api_type": "both",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": false,
+      "official_mcp": false,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": false,
+      "access": true,
+      "api_type": false,
+      "official_mcp": false,
+      "verdict": true
+     }
+    },
+    {
+     "id": 64,
+     "name": "Cloudflare",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "both",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": false,
+      "official_mcp": false,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": false,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": false,
+      "official_mcp": false,
+      "verdict": true
+     }
+    },
+    {
+     "id": 72,
+     "name": "Airtable",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true
+     }
+    },
+    {
+     "id": 80,
+     "name": "Harvest",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 82,
+     "name": "Plaid",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true
+     }
+    },
+    {
+     "id": 85,
+     "name": "iPayX",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "paid_plan",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_with_gate"
+     },
+     "ok": {
+      "access": false,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": false,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": false,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": false,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": false
+     }
+    },
+    {
+     "id": 92,
+     "name": "Otter AI",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "partner",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "outreach"
+     },
+     "ok": {
+      "access": false,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": false,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": false,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": false,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": false
+     }
+    },
+    {
+     "id": 98,
+     "name": "Mermaid CLI",
+     "pred": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [],
+      "access": "no_api",
+      "api_type": "none",
+      "official_mcp": "no",
+      "verdict": "not_viable"
+     },
+     "ok": {
+      "access": false,
+      "api_type": false,
+      "official_mcp": true,
+      "verdict": false,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": false,
+      "api_type": false,
+      "official_mcp": true,
+      "verdict": false
+     }
+    }
+   ]
+  },
+  "final": {
+   "accuracy": 0.774,
+   "correct": 120,
+   "scored_fields": 155,
+   "per_field": {
+    "auth": {
+     "correct": 60,
+     "of": 76,
+     "accuracy": 0.789
+    },
+    "access": {
+     "correct": 14,
+     "of": 20,
+     "accuracy": 0.7
+    },
+    "api_type": {
+     "correct": 17,
+     "of": 19,
+     "accuracy": 0.895
+    },
+    "official_mcp": {
+     "correct": 15,
+     "of": 20,
+     "accuracy": 0.75
+    },
+    "verdict": {
+     "correct": 14,
+     "of": 20,
+     "accuracy": 0.7
+    },
+    "auth_exact": {
+     "correct": 5,
+     "of": 19,
+     "accuracy": 0.263
+    }
+   },
+   "rows": [
+    {
+     "id": 2,
+     "name": "HubSpot",
+     "pred": {
+      "auth": [
+       "api_key",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": true
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 6,
+     "name": "Podio",
+     "pred": {
+      "auth": [
+       "api_key",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": true
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 19,
+     "name": "Gorgias",
+     "pred": {
+      "auth": [
+       "api_key",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key",
+       "basic",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": false,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 20,
+     "name": "Gladly",
+     "pred": {
+      "auth": [],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "basic"
+      ],
+      "access": "partner",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "outreach"
+     },
+     "ok": {
+      "access": false,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": false,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": false,
+      "auth:other": true,
+      "access": false,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": false
+     }
+    },
+    {
+     "id": 22,
+     "name": "Twilio",
+     "pred": {
+      "auth": [
+       "api_key",
+       "basic"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "basic",
+       "api_key",
+       "other"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": false,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 24,
+     "name": "Lark (Larksuite)",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 39,
+     "name": "Threads (Meta)",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true
+     }
+    },
+    {
+     "id": 40,
+     "name": "SendGrid",
+     "pred": {
+      "auth": [
+       "api_key",
+       "basic"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": false,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 47,
+     "name": "Ecwid",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "paid_plan",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_with_gate"
+     },
+     "ok": {
+      "access": false,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": false,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": false,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": false
+     }
+    },
+    {
+     "id": 49,
+     "name": "Amazon Selling Partner",
+     "pred": {
+      "auth": [
+       "api_key",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "both",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "approval",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_with_gate"
+     },
+     "ok": {
+      "access": false,
+      "api_type": false,
+      "official_mcp": false,
+      "verdict": false,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": false,
+      "api_type": false,
+      "official_mcp": false,
+      "verdict": false
+     }
+    },
+    {
+     "id": 58,
+     "name": "Sherlock",
+     "pred": {
+      "auth": [],
+      "access": "no_api",
+      "api_type": "none",
+      "official_mcp": "no",
+      "verdict": "not_viable"
+     },
+     "gold": {
+      "auth": [],
+      "access": "no_api",
+      "api_type": "none",
+      "official_mcp": "no",
+      "verdict": "not_viable"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": true
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 60,
+     "name": "Clay",
+     "pred": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": null,
+      "access": "partner",
+      "api_type": null,
+      "official_mcp": "yes",
+      "verdict": "outreach"
+     },
+     "ok": {
+      "access": false,
+      "official_mcp": true,
+      "verdict": false
+     },
+     "ok_methods": {
+      "access": false,
+      "official_mcp": true,
+      "verdict": false
+     }
+    },
+    {
+     "id": 61,
+     "name": "GitHub",
+     "pred": {
+      "auth": [
+       "api_key",
+       "basic",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "both",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key",
+       "oauth2",
+       "basic",
+       "other"
+      ],
+      "access": "self_serve",
+      "api_type": "both",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": false,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 64,
+     "name": "Cloudflare",
+     "pred": {
+      "auth": [
+       "api_key",
+       "basic",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "both",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": false,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": false,
+      "auth:api_key": true,
+      "auth:basic": false,
+      "auth:other": true,
+      "access": true,
+      "api_type": false,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 72,
+     "name": "Airtable",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true
+     }
+    },
+    {
+     "id": 80,
+     "name": "Harvest",
+     "pred": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": false,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 82,
+     "name": "Plaid",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 85,
+     "name": "iPayX",
+     "pred": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "paid_plan",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_with_gate"
+     },
+     "ok": {
+      "access": false,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": false,
+      "auth": true
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": false,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": false
+     }
+    },
+    {
+     "id": 92,
+     "name": "Otter AI",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "partner",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "outreach"
+     },
+     "ok": {
+      "access": false,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": false,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": false,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": false,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": false
+     }
+    },
+    {
+     "id": 98,
+     "name": "Mermaid CLI",
+     "pred": {
+      "auth": [],
+      "access": "no_api",
+      "api_type": "none",
+      "official_mcp": "no",
+      "verdict": "not_viable"
+     },
+     "gold": {
+      "auth": [],
+      "access": "no_api",
+      "api_type": "none",
+      "official_mcp": "no",
+      "verdict": "not_viable"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": true
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    }
+   ]
+  },
+  "reviewed": {
+   "accuracy": 0.826,
+   "correct": 128,
+   "scored_fields": 155,
+   "per_field": {
+    "auth": {
+     "correct": 62,
+     "of": 76,
+     "accuracy": 0.816
+    },
+    "access": {
+     "correct": 17,
+     "of": 20,
+     "accuracy": 0.85
+    },
+    "api_type": {
+     "correct": 17,
+     "of": 19,
+     "accuracy": 0.895
+    },
+    "official_mcp": {
+     "correct": 15,
+     "of": 20,
+     "accuracy": 0.75
+    },
+    "verdict": {
+     "correct": 17,
+     "of": 20,
+     "accuracy": 0.85
+    },
+    "auth_exact": {
+     "correct": 6,
+     "of": 19,
+     "accuracy": 0.316
+    }
+   },
+   "rows": [
+    {
+     "id": 2,
+     "name": "HubSpot",
+     "pred": {
+      "auth": [
+       "api_key",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": true
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 6,
+     "name": "Podio",
+     "pred": {
+      "auth": [
+       "api_key",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": true
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 19,
+     "name": "Gorgias",
+     "pred": {
+      "auth": [
+       "api_key",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key",
+       "basic",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": false,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 20,
+     "name": "Gladly",
+     "pred": {
+      "auth": [],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "basic"
+      ],
+      "access": "partner",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "outreach"
+     },
+     "ok": {
+      "access": false,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": false,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": false,
+      "auth:other": true,
+      "access": false,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": false
+     }
+    },
+    {
+     "id": 22,
+     "name": "Twilio",
+     "pred": {
+      "auth": [
+       "api_key",
+       "basic"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "basic",
+       "api_key",
+       "other"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": false,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 24,
+     "name": "Lark (Larksuite)",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 39,
+     "name": "Threads (Meta)",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true
+     }
+    },
+    {
+     "id": 40,
+     "name": "SendGrid",
+     "pred": {
+      "auth": [
+       "api_key",
+       "basic"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": false,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 47,
+     "name": "Ecwid",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "paid_plan",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_with_gate"
+     },
+     "ok": {
+      "access": false,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": false,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": false,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": false
+     }
+    },
+    {
+     "id": 49,
+     "name": "Amazon Selling Partner",
+     "pred": {
+      "auth": [
+       "api_key",
+       "oauth2"
+      ],
+      "access": "approval",
+      "api_type": "both",
+      "official_mcp": "no",
+      "verdict": "build_with_gate"
+     },
+     "gold": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "approval",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_with_gate"
+     },
+     "ok": {
+      "access": true,
+      "api_type": false,
+      "official_mcp": false,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": false,
+      "official_mcp": false,
+      "verdict": true
+     }
+    },
+    {
+     "id": 58,
+     "name": "Sherlock",
+     "pred": {
+      "auth": [],
+      "access": "no_api",
+      "api_type": "none",
+      "official_mcp": "no",
+      "verdict": "not_viable"
+     },
+     "gold": {
+      "auth": [],
+      "access": "no_api",
+      "api_type": "none",
+      "official_mcp": "no",
+      "verdict": "not_viable"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": true
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 60,
+     "name": "Clay",
+     "pred": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "partner",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "outreach"
+     },
+     "gold": {
+      "auth": null,
+      "access": "partner",
+      "api_type": null,
+      "official_mcp": "yes",
+      "verdict": "outreach"
+     },
+     "ok": {
+      "access": true,
+      "official_mcp": true,
+      "verdict": true
+     },
+     "ok_methods": {
+      "access": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 61,
+     "name": "GitHub",
+     "pred": {
+      "auth": [
+       "api_key",
+       "basic",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "both",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key",
+       "oauth2",
+       "basic",
+       "other"
+      ],
+      "access": "self_serve",
+      "api_type": "both",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": false,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 64,
+     "name": "Cloudflare",
+     "pred": {
+      "auth": [
+       "api_key",
+       "basic",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "both",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": false,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": false,
+      "auth:api_key": true,
+      "auth:basic": false,
+      "auth:other": true,
+      "access": true,
+      "api_type": false,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 72,
+     "name": "Airtable",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true
+     }
+    },
+    {
+     "id": 80,
+     "name": "Harvest",
+     "pred": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "oauth2",
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": false,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 82,
+     "name": "Plaid",
+     "pred": {
+      "auth": [
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key",
+       "oauth2"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": false
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": false,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    },
+    {
+     "id": 85,
+     "name": "iPayX",
+     "pred": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "self_serve",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_now"
+     },
+     "gold": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "paid_plan",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "build_with_gate"
+     },
+     "ok": {
+      "access": false,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": false,
+      "auth": true
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": false,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": false
+     }
+    },
+    {
+     "id": 92,
+     "name": "Otter AI",
+     "pred": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "partner",
+      "api_type": "rest",
+      "official_mcp": "no",
+      "verdict": "outreach"
+     },
+     "gold": {
+      "auth": [
+       "api_key"
+      ],
+      "access": "partner",
+      "api_type": "rest",
+      "official_mcp": "yes",
+      "verdict": "outreach"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true,
+      "auth": true
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": false,
+      "verdict": true
+     }
+    },
+    {
+     "id": 98,
+     "name": "Mermaid CLI",
+     "pred": {
+      "auth": [],
+      "access": "no_api",
+      "api_type": "none",
+      "official_mcp": "no",
+      "verdict": "not_viable"
+     },
+     "gold": {
+      "auth": [],
+      "access": "no_api",
+      "api_type": "none",
+      "official_mcp": "no",
+      "verdict": "not_viable"
+     },
+     "ok": {
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true,
+      "auth": true
+     },
+     "ok_methods": {
+      "auth:oauth2": true,
+      "auth:api_key": true,
+      "auth:basic": true,
+      "auth:other": true,
+      "access": true,
+      "api_type": true,
+      "official_mcp": true,
+      "verdict": true
+     }
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,704 @@
+[
+ {
+  "id": 1,
+  "name": "Salesforce",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "self_serve",
+  "detail": "LLM says self_serve but docs also mention approval (often only for public apps)",
+  "docs_url": "https://developer.salesforce.com/"
+ },
+ {
+  "id": 2,
+  "name": "HubSpot",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "oauth2",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://developers.hubspot.com"
+ },
+ {
+  "id": 2,
+  "name": "HubSpot",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "api_key",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://developers.hubspot.com"
+ },
+ {
+  "id": 2,
+  "name": "HubSpot",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://developers.hubspot.com"
+ },
+ {
+  "id": 3,
+  "name": "Pipedrive",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "oauth2",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://developers.pipedrive.com"
+ },
+ {
+  "id": 3,
+  "name": "Pipedrive",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "api_key",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://developers.pipedrive.com"
+ },
+ {
+  "id": 6,
+  "name": "Podio",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://developers.podio.com"
+ },
+ {
+  "id": 7,
+  "name": "Zoho CRM",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "self_serve",
+  "detail": "LLM says self_serve but docs also mention approval (often only for public apps)",
+  "docs_url": "https://www.zoho.com/developer/"
+ },
+ {
+  "id": 10,
+  "name": "DealCloud",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://api.docs.dealcloud.com"
+ },
+ {
+  "id": 12,
+  "name": "Intercom",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "self_serve",
+  "detail": "LLM says self_serve but docs also mention approval (often only for public apps)",
+  "docs_url": "https://developers.intercom.com"
+ },
+ {
+  "id": 13,
+  "name": "Freshdesk",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "oauth2",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://developers.freshdesk.com"
+ },
+ {
+  "id": 14,
+  "name": "Front",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "api_key",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://front.com/product/integrate-with-customer-service-apps-front"
+ },
+ {
+  "id": 14,
+  "name": "Front",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "other",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://front.com/product/integrate-with-customer-service-apps-front"
+ },
+ {
+  "id": 14,
+  "name": "Front",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "self_serve",
+  "detail": "LLM says self_serve but docs also mention approval (often only for public apps)",
+  "docs_url": "https://front.com/product/integrate-with-customer-service-apps-front"
+ },
+ {
+  "id": 15,
+  "name": "Pylon",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://docs.usepylon.com/pylon-docs"
+ },
+ {
+  "id": 15,
+  "name": "Pylon",
+  "field": "auth",
+  "kind": "missing",
+  "agent_value": null,
+  "detail": "no auth method found in the pages read",
+  "docs_url": "https://docs.usepylon.com/pylon-docs"
+ },
+ {
+  "id": 17,
+  "name": "Plain",
+  "field": "auth",
+  "kind": "missing",
+  "agent_value": null,
+  "detail": "no auth method found in the pages read",
+  "docs_url": "https://www.plain.com/docs/product/what-is-plain"
+ },
+ {
+  "id": 18,
+  "name": "Help Scout",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://developer.helpscout.com"
+ },
+ {
+  "id": 19,
+  "name": "Gorgias",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "self_serve",
+  "detail": "LLM says self_serve but docs also mention approval (often only for public apps)",
+  "docs_url": "https://developers.gorgias.com"
+ },
+ {
+  "id": 20,
+  "name": "Gladly",
+  "field": "auth",
+  "kind": "missing",
+  "agent_value": null,
+  "detail": "no auth method found in the pages read",
+  "docs_url": "https://developer.gladly.com"
+ },
+ {
+  "id": 21,
+  "name": "Slack",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "approval",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://docs.slack.dev/"
+ },
+ {
+  "id": 23,
+  "name": "Zoho Cliq",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "self_serve",
+  "detail": "LLM says self_serve but docs also mention approval (often only for public apps)",
+  "docs_url": "https://www.zoho.com/developer/"
+ },
+ {
+  "id": 24,
+  "name": "Lark (Larksuite)",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "oauth2",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://open.larksuite.com/"
+ },
+ {
+  "id": 26,
+  "name": "Discord",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "approval",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://docs.discord.com/developers/intro"
+ },
+ {
+  "id": 27,
+  "name": "Telegram",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "basic",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://core.telegram.org/api"
+ },
+ {
+  "id": 27,
+  "name": "Telegram",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://core.telegram.org/api"
+ },
+ {
+  "id": 28,
+  "name": "WhatsApp Business",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "oauth2",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/overview"
+ },
+ {
+  "id": 28,
+  "name": "WhatsApp Business",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "approval",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/overview"
+ },
+ {
+  "id": 30,
+  "name": "Vonage",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "oauth2",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://developer.vonage.com/en/home"
+ },
+ {
+  "id": 31,
+  "name": "Google Ads",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://developers.google.com/google-ads"
+ },
+ {
+  "id": 32,
+  "name": "Meta Ads",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "oauth2",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://developers.facebook.com/documentation/ads-commerce/marketing-api"
+ },
+ {
+  "id": 33,
+  "name": "LinkedIn Ads",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "self_serve",
+  "detail": "LLM says self_serve but docs also mention approval (often only for public apps)",
+  "docs_url": "https://learn.microsoft.com/en-us/linkedin/marketing/?view=li-lms-2026-11"
+ },
+ {
+  "id": 34,
+  "name": "GoHighLevel",
+  "field": "*",
+  "kind": "no_evidence",
+  "agent_value": null,
+  "detail": "the agent could not read a single docs page; every field needs a human",
+  "docs_url": null
+ },
+ {
+  "id": 34,
+  "name": "GoHighLevel",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "oauth2",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": null
+ },
+ {
+  "id": 34,
+  "name": "GoHighLevel",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": null
+ },
+ {
+  "id": 36,
+  "name": "Klaviyo",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "self_serve",
+  "detail": "LLM says self_serve but docs also mention approval (often only for public apps)",
+  "docs_url": "https://developers.klaviyo.com/en"
+ },
+ {
+  "id": 38,
+  "name": "Pinterest",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "self_serve",
+  "detail": "LLM says self_serve but docs also mention approval (often only for public apps)",
+  "docs_url": "https://developers.pinterest.com"
+ },
+ {
+  "id": 39,
+  "name": "Threads (Meta)",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "oauth2",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://developers.facebook.com/documentation/threads"
+ },
+ {
+  "id": 41,
+  "name": "Shopify",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "basic",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://shopify.dev/docs/api"
+ },
+ {
+  "id": 41,
+  "name": "Shopify",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "approval",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://shopify.dev/docs/api"
+ },
+ {
+  "id": 42,
+  "name": "WooCommerce",
+  "field": "auth",
+  "kind": "missing",
+  "agent_value": null,
+  "detail": "no auth method found in the pages read",
+  "docs_url": "https://woocommerce.com/document/woocommerce-rest-api/"
+ },
+ {
+  "id": 44,
+  "name": "Salesforce Commerce Cloud",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "oauth2",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://developer.salesforce.com/developer-centers/commerce-cloud"
+ },
+ {
+  "id": 44,
+  "name": "Salesforce Commerce Cloud",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://developer.salesforce.com/developer-centers/commerce-cloud"
+ },
+ {
+  "id": 48,
+  "name": "Gumroad",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "self_serve",
+  "detail": "LLM says self_serve but docs also mention approval (often only for public apps)",
+  "docs_url": "https://gumroad.com"
+ },
+ {
+  "id": 49,
+  "name": "Amazon Selling Partner",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "self_serve",
+  "detail": "LLM says self_serve but docs also mention approval (often only for public apps)",
+  "docs_url": "https://developer-docs.amazon/sp-api"
+ },
+ {
+  "id": 50,
+  "name": "fanbasis",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "oauth2",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://commas.com/"
+ },
+ {
+  "id": 50,
+  "name": "fanbasis",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "approval",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://commas.com/"
+ },
+ {
+  "id": 51,
+  "name": "DataForSEO",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "self_serve",
+  "detail": "LLM says self_serve but docs also mention approval (often only for public apps)",
+  "docs_url": "https://docs.dataforseo.com/v3/"
+ },
+ {
+  "id": 53,
+  "name": "Ahrefs",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "approval",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://docs.ahrefs.com"
+ },
+ {
+  "id": 59,
+  "name": "Waterfall.io",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://www.waterfall.io/"
+ },
+ {
+  "id": 63,
+  "name": "Netlify",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "self_serve",
+  "detail": "LLM says self_serve but docs also mention approval (often only for public apps)",
+  "docs_url": "https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/"
+ },
+ {
+  "id": 64,
+  "name": "Cloudflare",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://developers.cloudflare.com/api/"
+ },
+ {
+  "id": 67,
+  "name": "Snowflake",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "basic",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://docs.snowflake.com/en/"
+ },
+ {
+  "id": 67,
+  "name": "Snowflake",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://docs.snowflake.com/en/"
+ },
+ {
+  "id": 71,
+  "name": "Notion",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "paid_plan",
+  "detail": "LLM said self_serve; docs explicitly state paid_plan, which wins",
+  "docs_url": "https://developers.notion.com/guides/notion-api/quick-start"
+ },
+ {
+  "id": 72,
+  "name": "Airtable",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "oauth2",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://www.airtable.com/"
+ },
+ {
+  "id": 74,
+  "name": "Jira",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://developer.atlassian.com"
+ },
+ {
+  "id": 76,
+  "name": "Monday.com",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "self_serve",
+  "detail": "LLM says self_serve but docs also mention approval (often only for public apps)",
+  "docs_url": "https://developer.monday.com"
+ },
+ {
+  "id": 80,
+  "name": "Harvest",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "api_key",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://www.getharvest.com"
+ },
+ {
+  "id": 82,
+  "name": "Plaid",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "self_serve",
+  "detail": "LLM says self_serve but docs also mention approval (often only for public apps)",
+  "docs_url": "https://plaid.com/docs/"
+ },
+ {
+  "id": 83,
+  "name": "Binance",
+  "field": "*",
+  "kind": "no_evidence",
+  "agent_value": null,
+  "detail": "the agent could not read a single docs page; every field needs a human",
+  "docs_url": null
+ },
+ {
+  "id": 83,
+  "name": "Binance",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "oauth2",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": null
+ },
+ {
+  "id": 83,
+  "name": "Binance",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": null
+ },
+ {
+  "id": 84,
+  "name": "Paygent Connect",
+  "field": "*",
+  "kind": "no_evidence",
+  "agent_value": null,
+  "detail": "the agent could not read a single docs page; every field needs a human",
+  "docs_url": null
+ },
+ {
+  "id": 84,
+  "name": "Paygent Connect",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "oauth2",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": null
+ },
+ {
+  "id": 84,
+  "name": "Paygent Connect",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": null
+ },
+ {
+  "id": 86,
+  "name": "QuickBooks",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "oauth2",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://developer.intuit.com/app/developer/homepage"
+ },
+ {
+  "id": 86,
+  "name": "QuickBooks",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://developer.intuit.com/app/developer/homepage"
+ },
+ {
+  "id": 87,
+  "name": "Xero",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "self_serve",
+  "detail": "LLM says self_serve but docs also mention approval (often only for public apps)",
+  "docs_url": "https://developer.xero.com"
+ },
+ {
+  "id": 88,
+  "name": "Brex",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://developer.brex.com"
+ },
+ {
+  "id": 89,
+  "name": "Ramp",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://docs.ramp.com"
+ },
+ {
+  "id": 90,
+  "name": "PitchBook",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "api_key",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": null
+ },
+ {
+  "id": 92,
+  "name": "Otter AI",
+  "field": "*",
+  "kind": "no_evidence",
+  "agent_value": null,
+  "detail": "the agent could not read a single docs page; every field needs a human",
+  "docs_url": null
+ },
+ {
+  "id": 92,
+  "name": "Otter AI",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "oauth2",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": null
+ },
+ {
+  "id": 92,
+  "name": "Otter AI",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": null
+ },
+ {
+  "id": 94,
+  "name": "Consensus",
+  "field": "auth",
+  "kind": "unverified",
+  "agent_value": "oauth2",
+  "detail": "kept from the LLM, but no quote in the pages read says it; needs a human look",
+  "docs_url": "https://docs.consensus.app/get-started/what-is-consensus"
+ },
+ {
+  "id": 94,
+  "name": "Consensus",
+  "field": "access",
+  "kind": "rule_only",
+  "agent_value": "self_serve",
+  "detail": "decided by rules alone; needs a human look",
+  "docs_url": "https://docs.consensus.app/get-started/what-is-consensus"
+ },
+ {
+  "id": 95,
+  "name": "Reducto",
+  "field": "access",
+  "kind": "conflict",
+  "agent_value": "self_serve",
+  "detail": "LLM says self_serve but docs also mention approval (often only for public apps)",
+  "docs_url": "https://reducto.ai"
+ }
+]

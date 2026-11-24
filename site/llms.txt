@@ -1,0 +1,109 @@
+# App toolkit readiness: 100 SaaS apps
+
+> Agent-researched auth, access gate, API surface and official MCP status for 100 apps, with evidence URLs.
+> Field accuracy on a 20-app hand-checked sample: 77% for the agent alone, 83% after human review.
+
+## Data
+- [apps.json](/apps.json): one record per app. Fields: auth (oauth2|api_key|basic|other), access (self_serve|paid_plan|approval|partner|no_api), api_type (rest|graphql|both|none), official_mcp (yes|no), verdict (build_now|build_with_gate|outreach|not_viable|unverified), blocker, evidence {field: [{url, quote}]}.
+
+## Verdict per app
+- Salesforce (CRM and Sales): build_now; auth=oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developer.salesforce.com/
+- HubSpot (CRM and Sales): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developers.hubspot.com
+- Pipedrive (CRM and Sales): build_now; auth=api_key+oauth2; access=self_serve; mcp=no; blocker=none; docs=https://developers.pipedrive.com
+- Attio (CRM and Sales): build_now; auth=oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://docs.attio.com/rest-api/overview
+- Twenty (CRM and Sales): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://twenty.com
+- Podio (CRM and Sales): build_now; auth=api_key+oauth2; access=self_serve; mcp=no; blocker=none; docs=https://developers.podio.com
+- Zoho CRM (CRM and Sales): build_now; auth=oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://www.zoho.com/developer/
+- Close (CRM and Sales): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://close.com/api
+- Copper (CRM and Sales): build_now; auth=api_key+oauth2; access=self_serve; mcp=no; blocker=none; docs=https://developer.copper.com
+- DealCloud (CRM and Sales): outreach; auth=api_key+basic+oauth2; access=partner; mcp=yes; blocker=sales-led: contact sales or an enterprise contract; docs=https://api.docs.dealcloud.com
+- Zendesk (Support and Helpdesk): build_now; auth=api_key+basic+oauth2; access=self_serve; mcp=no; blocker=none; docs=https://developer.zendesk.com/api-reference/
+- Intercom (Support and Helpdesk): build_now; auth=oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developers.intercom.com
+- Freshdesk (Support and Helpdesk): build_now; auth=api_key+basic; access=self_serve; mcp=no; blocker=none; docs=https://developers.freshdesk.com
+- Front (Support and Helpdesk): build_now; auth=api_key+other; access=self_serve; mcp=no; blocker=none; docs=https://front.com/product/integrate-with-customer-service-apps-front
+- Pylon (Support and Helpdesk): outreach; auth=api_key; access=partner; mcp=yes; blocker=sales-led product; API tokens come from an existing Pylon workspace; docs=https://docs.usepylon.com/pylon-docs
+- LiveAgent (Support and Helpdesk): build_now; auth=api_key; access=self_serve; mcp=yes; blocker=none; docs=https://www.liveagent.com/
+- Plain (Support and Helpdesk): build_now; auth=api_key; access=self_serve; mcp=yes; blocker=none; docs=https://www.plain.com/docs/product/what-is-plain
+- Help Scout (Support and Helpdesk): build_now; auth=oauth2; access=self_serve; mcp=no; blocker=none; docs=https://developer.helpscout.com
+- Gorgias (Support and Helpdesk): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developers.gorgias.com
+- Gladly (Support and Helpdesk): build_now; auth=n/a; access=self_serve; mcp=no; blocker=none; docs=https://developer.gladly.com
+- Slack (Communications and Messaging): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://docs.slack.dev/
+- Twilio (Communications and Messaging): build_now; auth=api_key+basic; access=self_serve; mcp=yes; blocker=none; docs=https://www.twilio.com/en-us/products#all-products
+- Zoho Cliq (Communications and Messaging): build_now; auth=oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://www.zoho.com/developer/
+- Lark (Larksuite) (Communications and Messaging): build_now; auth=oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://open.larksuite.com/
+- Pumble (Communications and Messaging): build_now; auth=api_key; access=self_serve; mcp=no; blocker=none; docs=https://pumble.com
+- Discord (Communications and Messaging): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://docs.discord.com/developers/intro
+- Telegram (Communications and Messaging): build_now; auth=api_key; access=self_serve; mcp=no; blocker=none; docs=https://core.telegram.org/api
+- WhatsApp Business (Communications and Messaging): build_now; auth=oauth2; access=self_serve; mcp=no; blocker=none; docs=https://developers.facebook.com/documentation/business-messaging/whatsapp/overview
+- Aircall (Communications and Messaging): build_now; auth=api_key+basic; access=self_serve; mcp=yes; blocker=none; docs=https://developer.aircall.io
+- Vonage (Communications and Messaging): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developer.vonage.com/en/home
+- Google Ads (Marketing, Ads, Email and Social): build_with_gate; auth=oauth2; access=approval; mcp=no; blocker=developer token needs an application review before it works on real accounts; docs=https://developers.google.com/google-ads
+- Meta Ads (Marketing, Ads, Email and Social): build_now; auth=oauth2; access=self_serve; mcp=no; blocker=App Review for Full access and for managing other businesses' ad accounts; docs=https://developers.facebook.com/documentation/ads-commerce/marketing-api
+- LinkedIn Ads (Marketing, Ads, Email and Social): build_with_gate; auth=api_key+oauth2; access=approval; mcp=no; blocker=Advertising API needs an access request approved by LinkedIn; docs=https://learn.microsoft.com/en-us/linkedin/marketing/?view=li-lms-2026-11
+- GoHighLevel (Marketing, Ads, Email and Social): unverified; auth=api_key+oauth2; access=self_serve; mcp=no; blocker=unresolved: no readable docs, needs a human; docs=https://marketplace.gohighlevel.com/docs/
+- Mailchimp (Marketing, Ads, Email and Social): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://mailchimp.com/developer
+- Klaviyo (Marketing, Ads, Email and Social): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developers.klaviyo.com/en
+- systeme.io (Marketing, Ads, Email and Social): build_now; auth=api_key; access=self_serve; mcp=yes; blocker=none; docs=https://developer.systeme.io/reference/api
+- Pinterest (Marketing, Ads, Email and Social): build_with_gate; auth=api_key+basic+oauth2; access=approval; mcp=yes; blocker=apps start with reviewed trial access; docs=https://developers.pinterest.com
+- Threads (Meta) (Marketing, Ads, Email and Social): build_now; auth=oauth2; access=self_serve; mcp=no; blocker=none; docs=https://developers.facebook.com/documentation/threads
+- SendGrid (Marketing, Ads, Email and Social): build_now; auth=api_key+basic; access=self_serve; mcp=no; blocker=none; docs=https://www.twilio.com/en-us/sendgrid
+- Shopify (Ecommerce): build_now; auth=api_key+basic+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://shopify.dev/docs/api
+- WooCommerce (Ecommerce): build_now; auth=api_key; access=self_serve; mcp=yes; blocker=none; docs=https://woocommerce.com/document/woocommerce-rest-api/
+- BigCommerce (Ecommerce): build_now; auth=api_key; access=self_serve; mcp=yes; blocker=none; docs=https://docs.bigcommerce.com/developer/docs/overview/quick-start
+- Salesforce Commerce Cloud (Ecommerce): outreach; auth=oauth2; access=partner; mcp=no; blocker=B2C Commerce API needs a customer or partner realm; docs=https://developer.salesforce.com/developer-centers/commerce-cloud
+- Magento (Adobe Commerce) (Ecommerce): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developer.adobe.com/commerce/
+- Squarespace (Ecommerce): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developers.squarespace.com
+- Ecwid (Ecommerce): build_now; auth=oauth2; access=self_serve; mcp=no; blocker=none; docs=https://docs.ecwid.com
+- Gumroad (Ecommerce): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://gumroad.com
+- Amazon Selling Partner (Ecommerce): build_with_gate; auth=api_key+oauth2; access=approval; mcp=no; blocker=SP-API needs an approved developer registration; docs=https://developer-docs.amazon/sp-api
+- fanbasis (Ecommerce): build_with_gate; auth=oauth2; access=approval; mcp=no; blocker=app review or access approval before production use; docs=https://commas.com/
+- DataForSEO (Data, SEO and Scraping): build_now; auth=api_key+basic; access=self_serve; mcp=yes; blocker=none; docs=https://docs.dataforseo.com/v3/
+- SE Ranking (Data, SEO and Scraping): build_with_gate; auth=api_key; access=paid_plan; mcp=yes; blocker=API is a paid add-on or standalone paid plan; docs=https://seranking.com
+- Ahrefs (Data, SEO and Scraping): build_with_gate; auth=api_key; access=paid_plan; mcp=yes; blocker=API v3 is tied to the Enterprise plan; docs=https://docs.ahrefs.com
+- MrScraper (Data, SEO and Scraping): build_now; auth=api_key; access=self_serve; mcp=yes; blocker=none; docs=https://docs.mrscraper.com/docs/getting-started/overview
+- Apify (Data, SEO and Scraping): build_now; auth=api_key; access=self_serve; mcp=yes; blocker=none; docs=https://docs.apify.com
+- Firecrawl (Data, SEO and Scraping): build_now; auth=api_key; access=self_serve; mcp=yes; blocker=none; docs=https://docs.firecrawl.dev/introduction
+- Bright Data (Data, SEO and Scraping): build_now; auth=api_key; access=self_serve; mcp=yes; blocker=none; docs=https://docs.brightdata.com/introduction
+- Sherlock (Data, SEO and Scraping): not_viable; auth=n/a; access=no_api; mcp=no; blocker=no public network API (CLI or library only); docs=https://github.com/sherlock-project/sherlock
+- Waterfall.io (Data, SEO and Scraping): build_now; auth=api_key; access=self_serve; mcp=no; blocker=none; docs=https://www.waterfall.io/
+- Clay (Data, SEO and Scraping): outreach; auth=api_key; access=partner; mcp=yes; blocker=sales-led: contact sales or an enterprise contract; docs=https://developers.clay.com
+- GitHub (Developer, Infra and Data platforms): build_now; auth=api_key+basic+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://docs.github.com/en/rest
+- Vercel (Developer, Infra and Data platforms): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://vercel.com/docs/rest-api
+- Netlify (Developer, Infra and Data platforms): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+- Cloudflare (Developer, Infra and Data platforms): build_now; auth=api_key+basic+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developers.cloudflare.com/api/
+- Supabase (Developer, Infra and Data platforms): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://supabase.com/docs
+- Neo4j (Developer, Infra and Data platforms): build_now; auth=oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://neo4j.com
+- Snowflake (Developer, Infra and Data platforms): build_now; auth=api_key+basic+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://docs.snowflake.com/en/
+- MongoDB Atlas (Developer, Infra and Data platforms): build_now; auth=api_key; access=self_serve; mcp=yes; blocker=none; docs=https://www.mongodb.com/docs/atlas/api/
+- Datadog (Developer, Infra and Data platforms): build_now; auth=api_key+oauth2; access=self_serve; mcp=no; blocker=none; docs=https://docs.datadoghq.com/api
+- Sentry (Developer, Infra and Data platforms): build_now; auth=api_key+basic+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://docs.sentry.io/api/
+- Notion (Productivity and Project Management): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developers.notion.com/guides/notion-api/quick-start
+- Airtable (Productivity and Project Management): build_now; auth=oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://www.airtable.com/
+- Linear (Productivity and Project Management): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://linear.app/developers
+- Jira (Productivity and Project Management): build_now; auth=api_key+basic+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developer.atlassian.com
+- Asana (Productivity and Project Management): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developers.asana.com
+- Monday.com (Productivity and Project Management): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developer.monday.com
+- ClickUp (Productivity and Project Management): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developer.clickup.com
+- Coda (Productivity and Project Management): build_now; auth=api_key; access=self_serve; mcp=yes; blocker=none; docs=https://docs.superhuman.com/developers/apis/v1
+- Smartsheet (Productivity and Project Management): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developers.smartsheet.com/
+- Harvest (Productivity and Project Management): build_now; auth=api_key; access=self_serve; mcp=no; blocker=none; docs=https://www.getharvest.com
+- Stripe (Finance and Fintech): build_now; auth=api_key+basic; access=self_serve; mcp=yes; blocker=none; docs=https://docs.stripe.com/api
+- Plaid (Finance and Fintech): build_now; auth=oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://plaid.com/docs/
+- Binance (Finance and Fintech): build_now; auth=api_key+other; access=self_serve; mcp=no; blocker=none for read access; trading must be enabled per key (KYC'd account); docs=https://developers.binance.com/en/docs/products/spot/rest-api
+- Paygent Connect (Finance and Fintech): unverified; auth=oauth2; access=self_serve; mcp=no; blocker=unresolved: no readable docs, needs a human; docs=n/a
+- iPayX (Finance and Fintech): build_now; auth=api_key; access=self_serve; mcp=yes; blocker=none; docs=https://www.ipayx.ai/
+- QuickBooks (Finance and Fintech): build_now; auth=oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developer.intuit.com/app/developer/homepage
+- Xero (Finance and Fintech): build_now; auth=oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developer.xero.com
+- Brex (Finance and Fintech): build_with_gate; auth=api_key+oauth2; access=approval; mcp=yes; blocker=API needs an existing (approved) Brex business account; docs=https://developer.brex.com
+- Ramp (Finance and Fintech): build_with_gate; auth=basic+oauth2; access=approval; mcp=yes; blocker=partner/sandbox access is granted on request; docs=https://docs.ramp.com
+- PitchBook (Finance and Fintech): outreach; auth=api_key; access=partner; mcp=no; blocker=sales-led: contact sales or an enterprise contract; docs=https://pitchbook.com/products/integrations
+- NotebookLM (AI, Research and Media-native): build_with_gate; auth=oauth2; access=paid_plan; mcp=no; blocker=API needs a paid plan; docs=https://cloud.google.com/ai/gemini
+- Otter AI (AI, Research and Media-native): outreach; auth=api_key; access=partner; mcp=no; blocker=sales-led: contact sales or an enterprise contract; docs=https://help.otter.ai/hc/en-us/search?query=API
+- Fathom (AI, Research and Media-native): build_now; auth=api_key; access=self_serve; mcp=yes; blocker=none; docs=https://www.fathom.ai/
+- Consensus (AI, Research and Media-native): build_now; auth=api_key; access=self_serve; mcp=yes; blocker=none; docs=https://docs.consensus.app/get-started/what-is-consensus
+- Reducto (AI, Research and Media-native): build_now; auth=api_key; access=self_serve; mcp=yes; blocker=none; docs=https://reducto.ai
+- Devin (AI, Research and Media-native): build_with_gate; auth=api_key; access=paid_plan; mcp=yes; blocker=API needs a paid plan; docs=https://docs.devin.ai/get-started/devin-intro
+- higgsfield (AI, Research and Media-native): build_now; auth=api_key; access=self_serve; mcp=yes; blocker=none; docs=https://docs.higgsfield.ai/docs
+- Mermaid CLI (AI, Research and Media-native): not_viable; auth=n/a; access=no_api; mcp=no; blocker=no public network API (CLI or library only); docs=https://github.com/mermaid-js/mermaid-cli
+- YouTube Transcript (AI, Research and Media-native): build_now; auth=api_key; access=self_serve; mcp=yes; blocker=none; docs=https://transcriptapi.com
+- Grain (AI, Research and Media-native): build_now; auth=api_key+oauth2; access=self_serve; mcp=yes; blocker=none; docs=https://developers.grain.com
