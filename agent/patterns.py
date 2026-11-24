@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from collections import Counter, defaultdict
 
-VERDICTS = ("build_now", "build_with_gate", "outreach", "not_viable")
+VERDICTS = ("build_now", "build_with_gate", "outreach", "not_viable", "unverified")
 ACCESS = ("self_serve", "paid_plan", "approval", "partner", "no_api")
 
 
